@@ -74,6 +74,17 @@ await page.screenshot({ path: "/tmp/verify_detect.png" });
 console.log("  detection rendered");
 await scrollTo(0); await wait(1200);
 
+// 8) Validation: real data, the leakage-proof GNN, rigor, and the combined-chain beta
+console.log("step: Validation");
+await page.locator("nav button", { hasText: "Validation" }).first().click();
+await page.waitForSelector("text=Validated beyond the synthetic benchmark", { timeout: 15000 });
+await wait(2600);
+await scrollTo(0.45); await wait(2400);
+await scrollTo(0.9); await wait(2600);   // the combined attack chains (beta) panel
+await page.screenshot({ path: "/tmp/verify_validation.png" });
+console.log("  validation rendered");
+await scrollTo(0); await wait(1200);
+
 await context.close();
 await browser.close();
 const src = await page.video().path();

@@ -4,12 +4,37 @@ Follow the Writeup form field by field, in order. Everything you paste or upload
 is in this repo. Nothing here has placeholders - it is all final.
 
 ## Step 0 - before you open the form (5 min)
-1. Confirm the live site works: open https://chimera-8vx7.onrender.com and
+1. **Redeploy the live site first.** The newest work (the Validation view, the
+   leakage-proof GNN result, the combined-chains beta) only appears after a fresh
+   build. In the Render dashboard: **Manual Deploy -> Clear build cache & deploy**.
+   The Docker build recompiles the frontend and bakes in the artifacts automatically.
+2. Confirm the live site works: open https://chimera-8vx7.onrender.com and
    https://chimera-8vx7.onrender.com/api/health (should say `"detector_loaded":true`).
-   If it is asleep, the first load takes ~30-60s; open it once to warm it.
-2. Repo is already public: https://github.com/dhruv-decoder/chimera
-3. (Optional) Upload the demo video to YouTube as **Unlisted**:
-   youtube.com -> Create -> Upload -> `docs/Chimera_Demo.webm` -> copy the link.
+   Click into the **Validation** tab to confirm the new evidence renders. If it is
+   asleep, the first load takes ~30-60s; open it once to warm it.
+3. Repo is already public: https://github.com/dhruv-decoder/chimera (five logical
+   commits, so a judge clicking "commits" sees the build history, not one squash).
+4. (Optional) Upload the demo video to YouTube as **Unlisted**:
+   youtube.com -> Create -> Upload -> `docs/Chimera_Demo.webm` -> copy the link. The
+   video now walks the Validation view too (real data, GNN, rigor, combined chains).
+
+---
+
+## Already made a first submission? Update these (nothing else changed)
+The Writeup competition lets you edit and resubmit until the deadline. Since the
+first version, the work is all **additive** - the original structure and narrative
+are unchanged. To bring an earlier submission current:
+
+1. **Re-paste the Project Description** from `docs/KAGGLE_WRITEUP.md` (it gained a
+   real-data validation paragraph, the leakage-proof GNN, an evaluation-rigor
+   paragraph, and a short combined-chains note; a few claims were tightened for
+   honesty). Easiest is to clear the description and paste the whole thing fresh.
+2. **Add gallery photo `07-validation.png`** as the 7th image.
+3. **Re-upload `docs/Chimera_Deck.pdf`** (now 14 slides incl. rigor + validation).
+4. **Re-upload the video** if you had uploaded the older one (it is longer now).
+5. **Fill the Datasets / Models / Benchmarks tabs** (Step 7b) if you had not.
+
+If you are submitting for the first time, ignore this box and just go top to bottom.
 
 ---
 
