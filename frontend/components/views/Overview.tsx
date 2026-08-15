@@ -45,6 +45,21 @@ export function Overview() {
         <Fade delay={0.2}><Metric label="FPR @ 90% recall" tone="warn" better="lower" value={s ? `${(s.fpr_at_90_recall * 100).toFixed(3)}%` : " - "} sub="good customers wrongly flagged" /></Fade>
       </div>
 
+      <Fade delay={0.25}>
+        <div className="panel flex gap-3 border-defense/15 p-4">
+          <span className="mt-0.5 text-defense">ⓘ</span>
+          <p className="text-[13px] leading-relaxed text-mist-300">
+            <span className="font-medium text-mist-100">Why these numbers look perfect - and why that is not the point.</span>{" "}
+            First-generation campaigns carry loud structural signatures, so a strong model scores near-perfect
+            in-distribution. The two honest tests are how the detector holds up when the red team evolves evasion
+            (the <span className="text-defense">Closed Loop</span> below) and how it recovers a vector it has never
+            seen (<span className="text-defense">Detection</span>); on real public fraud the same ensemble scores a
+            credible ROC 0.95 (<span className="text-defense">Validation</span>). One vector, deepfake authorised
+            push, stays hard by design.
+          </p>
+        </div>
+      </Fade>
+
       <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr]">
         <Panel title="Adversarial hardening curve"
           hint="Each round the red team evolves evasion (recall drops); retraining on the new samples recovers it.">
