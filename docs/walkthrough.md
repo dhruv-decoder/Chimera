@@ -431,19 +431,27 @@ the stage-2 fraud at a matched 1% alert budget:
 
 | Scenario | Supervised only | Full ensemble |
 |---|---|---|
-| single-stage (cold accounts) | 38% | 100% |
-| chained (aged bust-out) | **8%** | 62% |
-| chained, after retrain | 94% | 76% |
+| single-stage (cold accounts), shipped detector | 38% | 100% |
+| chained (aged bust-out), shipped detector | **8%** | 62% |
+| chained, after retrain (fresh holdout, retrained detector) | 94% | 76% |
+
+Read the rows carefully, because they are not all the same measurement. The first
+two use the *shipped* detector at its 1% budget; the third uses a detector
+*retrained* on the chain, scored on a *fresh* chained holdout at its own 1% budget.
+So the honest before/after for retraining is the second row versus the third
+(supervised 8% to 94%, full ensemble 62% to 76% - both improve); the 100% in row one
+is the easy single-stage attack, not a baseline the retrained number should be
+compared against.
 
 Two things it demonstrates, both on-thesis. First, chaining is a genuine evasion of
 the *supervised* classifier - recall collapses from 38% to 8% as the aged, low-signal
 cash-out removes the tenure and velocity cues a cold ring would trip. Second, the
 novelty channel is the safety net that stops it going to zero (62%), and retraining
-on the chain restores the supervised channel to 94% - the same lesson as
-AGENT-HIJACK, now against a multi-stage threat. The novelty dip to 62% is honest: a
-sufficiently patient chain degrades even the ensemble, which is exactly why the loop,
-not any single model, is the contribution. Marked beta because it is a scripted
-two-stage chain, not yet wired into the evolutionary search.
+lifts both channels on the held-out chain - the same lesson as AGENT-HIJACK, now
+against a multi-stage threat. The novelty dip to 62% is honest: a sufficiently
+patient chain degrades even the ensemble, which is exactly why the loop, not any
+single model, is the contribution. Marked beta because it is a scripted two-stage
+chain, not yet wired into the evolutionary search.
 
 ## Coverage - identified vs simulated vs evaluated
 

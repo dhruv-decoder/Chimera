@@ -151,7 +151,7 @@ export function Evidence() {
             <ChainRow label="chained, after retrain" sup={chains.chained_after_retrain.supervised_only} full={chains.chained_after_retrain.full_ensemble} />
           </div>
           <p className="mt-4 text-xs leading-relaxed text-mist-500">
-            Chaining evades the supervised classifier ({pct(chains.single_stage_cold.supervised_only)} → {pct(chains.chained.supervised_only)}); the novelty channel is the safety net ({pct(chains.chained.full_ensemble)}), and retraining restores the supervised channel to {pct(chains.chained_after_retrain.supervised_only)}. The two-channel design and the loop both earn their keep against a multi-stage threat.
+            Chaining evades the supervised classifier ({pct(chains.single_stage_cold.supervised_only)} → {pct(chains.chained.supervised_only)}); the novelty channel is the safety net ({pct(chains.chained.full_ensemble)}), and retraining lifts both channels. The last row is a fresh holdout scored by the retrained detector, so the honest before/after is the chained row vs it (not the easy single-stage 100%). The two-channel design and the loop both earn their keep against a multi-stage threat.
           </p>
         </Panel>
       )}
