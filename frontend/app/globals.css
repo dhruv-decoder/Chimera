@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --bg: #07080b;
+  --panel: rgba(255, 255, 255, 0.024);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+html,
+body {
+  background-color: var(--bg);
+  color: #e8eaf0;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Depth without the generic neon grid: two soft aurora fields and a fine
+   film grain, fixed so content scrolls over a stable atmosphere. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(60rem 40rem at 78% -8%, rgba(46, 214, 166, 0.10), transparent 60%),
+    radial-gradient(52rem 40rem at 8% 4%, rgba(139, 140, 240, 0.09), transparent 58%),
+    radial-gradient(48rem 46rem at 50% 116%, rgba(255, 92, 73, 0.07), transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  opacity: 0.035;
+  pointer-events: none;
+  z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@layer base {
+  ::selection {
+    background: rgba(46, 214, 166, 0.24);
+    color: #fff;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply rounded-2xl border border-white/[0.07] bg-white/[0.024] shadow-panel backdrop-blur-sm;
+  }
+  .panel-hover {
+    @apply transition-all duration-300 hover:border-white/[0.14] hover:bg-white/[0.04];
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-white/[0.09] bg-white/[0.03] px-2.5 py-0.5 text-[11px] font-medium tracking-wide text-mist-300;
+  }
+  .stat {
+    @apply font-mono tabular-nums tracking-tight;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-white/[0.09] bg-white/[0.03] px-4 py-2.5 text-sm font-medium text-mist-100 transition-all hover:border-white/25 hover:bg-white/[0.07] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-40;
+  }
+  .btn-accent {
+    @apply border-defense/30 bg-defense/10 text-defense hover:border-defense/60 hover:bg-defense/20;
+  }
+  .label {
+    @apply text-[11px] font-medium uppercase tracking-[0.16em] text-mist-500;
+  }
+  /* Editorial display type for the narrative. */
+  .display {
+    @apply font-semibold tracking-[-0.02em] text-mist-100;
+    text-wrap: balance;
+  }
+  .lede {
+    @apply text-mist-400;
+    text-wrap: pretty;
+  }
+  .rule-gradient {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.14), transparent);
+  }
+  .hairline {
+    @apply border-white/[0.07];
+  }
+}
+
+/* Console-feel scrollbars. */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.16);
+  background-clip: padding-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
