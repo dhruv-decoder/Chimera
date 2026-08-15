@@ -1,0 +1,43 @@
+{
+  "batch": {
+    "roc_auc": 1.0,
+    "pr_auc": 0.9999,
+    "recall": 0.9919,
+    "precision": 0.998,
+    "f1": 0.9949,
+    "fpr": 3e-05,
+    "per_vector": {
+      "AGENT-CARD": 1.0,
+      "AGENT-HIJACK": 1.0,
+      "ATO-STUFF": 1.0,
+      "CARD-TEST": 1.0,
+      "DF-APP": 0.8049,
+      "MULE-NET": 1.0,
+      "PIG-BUTCH": 1.0,
+      "STRUCT": 1.0,
+      "SYN-ID": 1.0
+    }
+  },
+  "causal": {
+    "roc_auc": 1.0,
+    "pr_auc": 0.9987,
+    "recall": 0.9777,
+    "precision": 0.9959,
+    "f1": 0.9867,
+    "fpr": 6e-05,
+    "per_vector": {
+      "AGENT-CARD": 1.0,
+      "AGENT-HIJACK": 0.9938,
+      "ATO-STUFF": 1.0,
+      "CARD-TEST": 1.0,
+      "DF-APP": 0.4634,
+      "MULE-NET": 1.0,
+      "PIG-BUTCH": 1.0,
+      "STRUCT": 1.0,
+      "SYN-ID": 1.0
+    }
+  },
+  "delta_roc_auc": 0.0,
+  "delta_pr_auc": -0.0012,
+  "note": "Causal features use only events strictly before t (cumulative device/counterparty/graph degree + agent-id fan-out; PageRank dropped as it needs an incremental engine). A modest drop is expected and honest; it is what a live streaming store would see."
+}

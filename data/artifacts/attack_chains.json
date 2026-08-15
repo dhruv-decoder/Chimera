@@ -1,0 +1,16 @@
+{
+  "note": "BETA. A synthetic-identity bust-out (stage 1) ages a set of accounts, which then run a low-observability authorised-push-style cash-out (stage 2) to ordinary payees. Recall on the stage-2 fraud is reported for the supervised classifier alone vs the full two-channel ensemble, at a matched ~1% legit alert budget.",
+  "single_stage_cold": {
+    "supervised_only": 0.383,
+    "full_ensemble": 1.0
+  },
+  "chained": {
+    "supervised_only": 0.0792,
+    "full_ensemble": 0.6238
+  },
+  "chained_after_retrain": {
+    "supervised_only": 0.9388,
+    "full_ensemble": 0.7653
+  },
+  "finding": "the chain evades the supervised classifier (recall collapses); the novelty channel still catches it, and retraining restores the supervised channel - the two-channel design and the loop both earn their keep against a combined threat."
+}

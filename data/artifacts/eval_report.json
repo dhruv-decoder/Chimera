@@ -1,0 +1,1172 @@
+{
+  "n_train": 166533,
+  "n_test": 71372,
+  "test_fraud": 988,
+  "test_fraud_rate": 0.01384,
+  "supervised": {
+    "roc_auc": 1.0,
+    "pr_auc": 0.9999,
+    "threshold": 0.9476,
+    "precision": 0.998,
+    "recall": 0.9919,
+    "f1": 0.9949,
+    "fpr": 3e-05,
+    "confusion": {
+      "tp": 980,
+      "fp": 2,
+      "fn": 8,
+      "tn": 70382
+    },
+    "fpr_at_90_recall": 0.0,
+    "threshold_at_90_recall": 0.9994,
+    "alerts_per_10k": 137.6,
+    "value_detected_rate": 0.9975
+  },
+  "blended": {
+    "roc_auc": 0.9996,
+    "pr_auc": 0.9978
+  },
+  "operating_point": {
+    "cost_optimal": {
+      "threshold": 0.2323,
+      "alerts_per_10k": 140.4,
+      "value_detected_rate": 1.0,
+      "expected_cost": 3014.8
+    },
+    "review_cost_per_alert": 3.0,
+    "total_fraud_value": 247881.8,
+    "sweep": [
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 2000.1,
+        "value_detected_rate": 1.0,
+        "expected_cost": 42825.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 1966.2,
+        "value_detected_rate": 1.0,
+        "expected_cost": 42099.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 1932.4,
+        "value_detected_rate": 1.0,
+        "expected_cost": 41376.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 1898.6,
+        "value_detected_rate": 1.0,
+        "expected_cost": 40653.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 1864.7,
+        "value_detected_rate": 1.0,
+        "expected_cost": 39927.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 1831.0,
+        "value_detected_rate": 1.0,
+        "expected_cost": 39204.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 1797.2,
+        "value_detected_rate": 1.0,
+        "expected_cost": 38481.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 1763.3,
+        "value_detected_rate": 1.0,
+        "expected_cost": 37755.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 1729.5,
+        "value_detected_rate": 1.0,
+        "expected_cost": 37032.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 1695.8,
+        "value_detected_rate": 1.0,
+        "expected_cost": 36309.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 1661.9,
+        "value_detected_rate": 1.0,
+        "expected_cost": 35583.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 1628.1,
+        "value_detected_rate": 1.0,
+        "expected_cost": 34860.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 1594.3,
+        "value_detected_rate": 1.0,
+        "expected_cost": 34137.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 1560.4,
+        "value_detected_rate": 1.0,
+        "expected_cost": 33411.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 1526.6,
+        "value_detected_rate": 1.0,
+        "expected_cost": 32688.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 1492.9,
+        "value_detected_rate": 1.0,
+        "expected_cost": 31965.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 1459.0,
+        "value_detected_rate": 1.0,
+        "expected_cost": 31239.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 1425.2,
+        "value_detected_rate": 1.0,
+        "expected_cost": 30516.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 1391.4,
+        "value_detected_rate": 1.0,
+        "expected_cost": 29793.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 1357.5,
+        "value_detected_rate": 1.0,
+        "expected_cost": 29067.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 1323.8,
+        "value_detected_rate": 1.0,
+        "expected_cost": 28344.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 1290.0,
+        "value_detected_rate": 1.0,
+        "expected_cost": 27621.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 1256.1,
+        "value_detected_rate": 1.0,
+        "expected_cost": 26895.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 1222.3,
+        "value_detected_rate": 1.0,
+        "expected_cost": 26172.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 1188.6,
+        "value_detected_rate": 1.0,
+        "expected_cost": 25449.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 1154.7,
+        "value_detected_rate": 1.0,
+        "expected_cost": 24723.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 1120.9,
+        "value_detected_rate": 1.0,
+        "expected_cost": 24000.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 1087.1,
+        "value_detected_rate": 1.0,
+        "expected_cost": 23277.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 1053.2,
+        "value_detected_rate": 1.0,
+        "expected_cost": 22551.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 1019.4,
+        "value_detected_rate": 1.0,
+        "expected_cost": 21828.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 985.7,
+        "value_detected_rate": 1.0,
+        "expected_cost": 21105.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 951.8,
+        "value_detected_rate": 1.0,
+        "expected_cost": 20379.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 918.0,
+        "value_detected_rate": 1.0,
+        "expected_cost": 19656.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 884.2,
+        "value_detected_rate": 1.0,
+        "expected_cost": 18933.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 850.3,
+        "value_detected_rate": 1.0,
+        "expected_cost": 18207.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 816.6,
+        "value_detected_rate": 1.0,
+        "expected_cost": 17484.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 782.8,
+        "value_detected_rate": 1.0,
+        "expected_cost": 16761.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 748.9,
+        "value_detected_rate": 1.0,
+        "expected_cost": 16035.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 715.1,
+        "value_detected_rate": 1.0,
+        "expected_cost": 15312.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 681.4,
+        "value_detected_rate": 1.0,
+        "expected_cost": 14589.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 647.5,
+        "value_detected_rate": 1.0,
+        "expected_cost": 13863.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 613.7,
+        "value_detected_rate": 1.0,
+        "expected_cost": 13140.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 579.9,
+        "value_detected_rate": 1.0,
+        "expected_cost": 12417.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 546.0,
+        "value_detected_rate": 1.0,
+        "expected_cost": 11691.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 512.2,
+        "value_detected_rate": 1.0,
+        "expected_cost": 10968.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 478.5,
+        "value_detected_rate": 1.0,
+        "expected_cost": 10245.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 444.6,
+        "value_detected_rate": 1.0,
+        "expected_cost": 9519.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 410.8,
+        "value_detected_rate": 1.0,
+        "expected_cost": 8796.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 377.0,
+        "value_detected_rate": 1.0,
+        "expected_cost": 8073.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 343.1,
+        "value_detected_rate": 1.0,
+        "expected_cost": 7347.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 309.4,
+        "value_detected_rate": 1.0,
+        "expected_cost": 6624.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 275.6,
+        "value_detected_rate": 1.0,
+        "expected_cost": 5901.0
+      },
+      {
+        "threshold": 0.0,
+        "alerts_per_10k": 241.8,
+        "value_detected_rate": 1.0,
+        "expected_cost": 5178.0
+      },
+      {
+        "threshold": 0.0001,
+        "alerts_per_10k": 207.9,
+        "value_detected_rate": 1.0,
+        "expected_cost": 4452.0
+      },
+      {
+        "threshold": 0.0001,
+        "alerts_per_10k": 174.2,
+        "value_detected_rate": 1.0,
+        "expected_cost": 3729.0
+      },
+      {
+        "threshold": 0.2323,
+        "alerts_per_10k": 140.4,
+        "value_detected_rate": 1.0,
+        "expected_cost": 3014.8
+      },
+      {
+        "threshold": 1.0,
+        "alerts_per_10k": 106.5,
+        "value_detected_rate": 0.5365,
+        "expected_cost": 117162.1
+      },
+      {
+        "threshold": 1.0,
+        "alerts_per_10k": 72.7,
+        "value_detected_rate": 0.158,
+        "expected_cost": 210278.8
+      },
+      {
+        "threshold": 1.0,
+        "alerts_per_10k": 39.0,
+        "value_detected_rate": 0.0196,
+        "expected_cost": 243856.4
+      },
+      {
+        "threshold": 1.0,
+        "alerts_per_10k": 9.2,
+        "value_detected_rate": 0.0005,
+        "expected_cost": 247966.0
+      }
+    ]
+  },
+  "curves": {
+    "roc": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0283
+      ],
+      [
+        0.0,
+        0.0668
+      ],
+      [
+        0.0,
+        0.0719
+      ],
+      [
+        0.0,
+        0.085
+      ],
+      [
+        0.0,
+        0.0911
+      ],
+      [
+        0.0,
+        0.0962
+      ],
+      [
+        0.0,
+        0.1002
+      ],
+      [
+        0.0,
+        0.1053
+      ],
+      [
+        0.0,
+        0.1093
+      ],
+      [
+        0.0,
+        0.1134
+      ],
+      [
+        0.0,
+        0.1194
+      ],
+      [
+        0.0,
+        0.1296
+      ],
+      [
+        0.0,
+        0.1417
+      ],
+      [
+        0.0,
+        0.1427
+      ],
+      [
+        0.0,
+        0.1488
+      ],
+      [
+        0.0,
+        0.1549
+      ],
+      [
+        0.0,
+        0.1559
+      ],
+      [
+        0.0,
+        0.1579
+      ],
+      [
+        0.0,
+        0.1589
+      ],
+      [
+        0.0,
+        0.1609
+      ],
+      [
+        0.0,
+        0.1619
+      ],
+      [
+        0.0,
+        0.165
+      ],
+      [
+        0.0,
+        0.1731
+      ],
+      [
+        0.0,
+        0.1781
+      ],
+      [
+        0.0,
+        0.1791
+      ],
+      [
+        0.0,
+        0.1812
+      ],
+      [
+        0.0,
+        0.1883
+      ],
+      [
+        0.0,
+        0.1893
+      ],
+      [
+        0.0,
+        0.1974
+      ],
+      [
+        0.0,
+        0.1984
+      ],
+      [
+        0.0,
+        0.2024
+      ],
+      [
+        0.0,
+        0.2095
+      ],
+      [
+        0.0,
+        0.2126
+      ],
+      [
+        0.0,
+        0.2196
+      ],
+      [
+        0.0,
+        0.2237
+      ],
+      [
+        0.0,
+        0.2277
+      ],
+      [
+        0.0,
+        0.2298
+      ],
+      [
+        0.0,
+        0.247
+      ],
+      [
+        0.0,
+        0.249
+      ],
+      [
+        0.0,
+        0.2551
+      ],
+      [
+        0.0,
+        0.2571
+      ],
+      [
+        0.0,
+        0.2591
+      ],
+      [
+        0.0,
+        0.2611
+      ],
+      [
+        0.0,
+        0.2642
+      ],
+      [
+        0.0,
+        0.2682
+      ],
+      [
+        0.0,
+        0.3138
+      ],
+      [
+        0.0,
+        0.3178
+      ],
+      [
+        0.0,
+        0.3401
+      ],
+      [
+        0.0,
+        0.3421
+      ],
+      [
+        0.0,
+        0.5638
+      ],
+      [
+        0.0,
+        0.5658
+      ],
+      [
+        0.0,
+        0.5668
+      ],
+      [
+        0.0,
+        0.5688
+      ],
+      [
+        0.0,
+        0.9717
+      ],
+      [
+        0.0,
+        0.9717
+      ],
+      [
+        0.0,
+        0.9909
+      ],
+      [
+        0.0,
+        0.9909
+      ],
+      [
+        0.0,
+        0.9919
+      ],
+      [
+        0.0001,
+        0.9919
+      ],
+      [
+        0.0001,
+        0.9939
+      ],
+      [
+        0.0001,
+        0.9939
+      ],
+      [
+        0.0001,
+        0.996
+      ],
+      [
+        0.0002,
+        0.996
+      ],
+      [
+        0.0002,
+        0.998
+      ],
+      [
+        0.0002,
+        0.998
+      ],
+      [
+        0.0002,
+        0.999
+      ],
+      [
+        0.0009,
+        0.999
+      ],
+      [
+        0.0009,
+        1.0
+      ],
+      [
+        1.0,
+        1.0
+      ]
+    ],
+    "pr": [
+      [
+        1.0,
+        0.0138
+      ],
+      [
+        1.0,
+        0.014
+      ],
+      [
+        1.0,
+        0.0142
+      ],
+      [
+        1.0,
+        0.0144
+      ],
+      [
+        1.0,
+        0.0146
+      ],
+      [
+        1.0,
+        0.0148
+      ],
+      [
+        1.0,
+        0.015
+      ],
+      [
+        1.0,
+        0.0152
+      ],
+      [
+        1.0,
+        0.0154
+      ],
+      [
+        1.0,
+        0.0156
+      ],
+      [
+        1.0,
+        0.0158
+      ],
+      [
+        1.0,
+        0.0161
+      ],
+      [
+        1.0,
+        0.0163
+      ],
+      [
+        1.0,
+        0.0166
+      ],
+      [
+        1.0,
+        0.0168
+      ],
+      [
+        1.0,
+        0.0171
+      ],
+      [
+        1.0,
+        0.0173
+      ],
+      [
+        1.0,
+        0.0176
+      ],
+      [
+        1.0,
+        0.0179
+      ],
+      [
+        1.0,
+        0.0182
+      ],
+      [
+        1.0,
+        0.0185
+      ],
+      [
+        1.0,
+        0.0188
+      ],
+      [
+        1.0,
+        0.0192
+      ],
+      [
+        1.0,
+        0.0195
+      ],
+      [
+        1.0,
+        0.0199
+      ],
+      [
+        1.0,
+        0.0202
+      ],
+      [
+        1.0,
+        0.0206
+      ],
+      [
+        1.0,
+        0.021
+      ],
+      [
+        1.0,
+        0.0214
+      ],
+      [
+        1.0,
+        0.0218
+      ],
+      [
+        1.0,
+        0.0223
+      ],
+      [
+        1.0,
+        0.0227
+      ],
+      [
+        1.0,
+        0.0232
+      ],
+      [
+        1.0,
+        0.0237
+      ],
+      [
+        1.0,
+        0.0243
+      ],
+      [
+        1.0,
+        0.0248
+      ],
+      [
+        1.0,
+        0.0254
+      ],
+      [
+        1.0,
+        0.026
+      ],
+      [
+        1.0,
+        0.0266
+      ],
+      [
+        1.0,
+        0.0273
+      ],
+      [
+        1.0,
+        0.028
+      ],
+      [
+        1.0,
+        0.0287
+      ],
+      [
+        1.0,
+        0.0295
+      ],
+      [
+        1.0,
+        0.0303
+      ],
+      [
+        1.0,
+        0.0311
+      ],
+      [
+        1.0,
+        0.0321
+      ],
+      [
+        1.0,
+        0.033
+      ],
+      [
+        1.0,
+        0.034
+      ],
+      [
+        1.0,
+        0.0351
+      ],
+      [
+        1.0,
+        0.0363
+      ],
+      [
+        1.0,
+        0.0375
+      ],
+      [
+        1.0,
+        0.0389
+      ],
+      [
+        1.0,
+        0.0403
+      ],
+      [
+        1.0,
+        0.0418
+      ],
+      [
+        1.0,
+        0.0435
+      ],
+      [
+        1.0,
+        0.0453
+      ],
+      [
+        1.0,
+        0.0473
+      ],
+      [
+        1.0,
+        0.0494
+      ],
+      [
+        1.0,
+        0.0517
+      ],
+      [
+        1.0,
+        0.0543
+      ],
+      [
+        1.0,
+        0.0571
+      ],
+      [
+        1.0,
+        0.0602
+      ],
+      [
+        1.0,
+        0.0637
+      ],
+      [
+        1.0,
+        0.0677
+      ],
+      [
+        1.0,
+        0.0721
+      ],
+      [
+        1.0,
+        0.0772
+      ],
+      [
+        1.0,
+        0.083
+      ],
+      [
+        1.0,
+        0.0898
+      ],
+      [
+        1.0,
+        0.0979
+      ],
+      [
+        1.0,
+        0.1074
+      ],
+      [
+        1.0,
+        0.1191
+      ],
+      [
+        1.0,
+        0.1336
+      ],
+      [
+        1.0,
+        0.1522
+      ],
+      [
+        1.0,
+        0.1767
+      ],
+      [
+        1.0,
+        0.2107
+      ],
+      [
+        1.0,
+        0.2608
+      ],
+      [
+        1.0,
+        0.3422
+      ],
+      [
+        1.0,
+        0.4975
+      ],
+      [
+        1.0,
+        0.9106
+      ],
+      [
+        0.0,
+        1.0
+      ]
+    ]
+  },
+  "per_vector_recall": {
+    "AGENT-CARD": {
+      "recall": 1.0,
+      "n": 188
+    },
+    "AGENT-HIJACK": {
+      "recall": 1.0,
+      "n": 162
+    },
+    "ATO-STUFF": {
+      "recall": 1.0,
+      "n": 54
+    },
+    "CARD-TEST": {
+      "recall": 1.0,
+      "n": 241
+    },
+    "DF-APP": {
+      "recall": 0.8049,
+      "n": 41
+    },
+    "MULE-NET": {
+      "recall": 1.0,
+      "n": 14
+    },
+    "PIG-BUTCH": {
+      "recall": 1.0,
+      "n": 66
+    },
+    "STRUCT": {
+      "recall": 1.0,
+      "n": 27
+    },
+    "SYN-ID": {
+      "recall": 1.0,
+      "n": 195
+    }
+  },
+  "global_importance": [
+    {
+      "feature": "dev_txn_count",
+      "importance": 1688
+    },
+    {
+      "feature": "log_session",
+      "importance": 1648
+    },
+    {
+      "feature": "ip_asn_risk",
+      "importance": 1283
+    },
+    {
+      "feature": "log_age",
+      "importance": 1170
+    },
+    {
+      "feature": "dev_distinct_accounts",
+      "importance": 1030
+    },
+    {
+      "feature": "cp_txn_count",
+      "importance": 997
+    },
+    {
+      "feature": "acct_pagerank",
+      "importance": 988
+    },
+    {
+      "feature": "amount_to_balance_ratio",
+      "importance": 894
+    },
+    {
+      "feature": "amt_z",
+      "importance": 857
+    },
+    {
+      "feature": "inter_arrival_s",
+      "importance": 851
+    },
+    {
+      "feature": "hour",
+      "importance": 694
+    },
+    {
+      "feature": "cp_in_degree",
+      "importance": 682
+    },
+    {
+      "feature": "vel_amt_24h",
+      "importance": 650
+    },
+    {
+      "feature": "vel_amt_1h",
+      "importance": 649
+    },
+    {
+      "feature": "acct_out_deg",
+      "importance": 618
+    }
+  ],
+  "leave_one_out": [
+    {
+      "vector": "AGENT-CARD",
+      "n_unseen": 640,
+      "supervised_recall": 0.9922,
+      "novelty_recall": 1.0,
+      "blended_recall": 1.0
+    },
+    {
+      "vector": "AGENT-HIJACK",
+      "n_unseen": 576,
+      "supervised_recall": 0.1493,
+      "novelty_recall": 1.0,
+      "blended_recall": 1.0
+    },
+    {
+      "vector": "ATO-STUFF",
+      "n_unseen": 210,
+      "supervised_recall": 0.5762,
+      "novelty_recall": 0.781,
+      "blended_recall": 0.7952
+    },
+    {
+      "vector": "CARD-TEST",
+      "n_unseen": 720,
+      "supervised_recall": 1.0,
+      "novelty_recall": 0.9583,
+      "blended_recall": 1.0
+    },
+    {
+      "vector": "DF-APP",
+      "n_unseen": 115,
+      "supervised_recall": 0.8,
+      "novelty_recall": 0.1913,
+      "blended_recall": 0.3217
+    },
+    {
+      "vector": "MULE-NET",
+      "n_unseen": 56,
+      "supervised_recall": 1.0,
+      "novelty_recall": 1.0,
+      "blended_recall": 1.0
+    },
+    {
+      "vector": "PIG-BUTCH",
+      "n_unseen": 240,
+      "supervised_recall": 1.0,
+      "novelty_recall": 0.3667,
+      "blended_recall": 0.4708
+    },
+    {
+      "vector": "STRUCT",
+      "n_unseen": 105,
+      "supervised_recall": 1.0,
+      "novelty_recall": 1.0,
+      "blended_recall": 1.0
+    },
+    {
+      "vector": "SYN-ID",
+      "n_unseen": 632,
+      "supervised_recall": 0.0174,
+      "novelty_recall": 0.1994,
+      "blended_recall": 0.1994
+    }
+  ]
+}

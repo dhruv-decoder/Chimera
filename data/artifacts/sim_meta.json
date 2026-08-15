@@ -1,0 +1,103 @@
+{
+  "n_total": 237905,
+  "n_legit": 234611,
+  "n_hard_negatives": 14927,
+  "n_fraud": 3294,
+  "fraud_rate": 0.01385,
+  "per_vector": {
+    "ATO-STUFF": 210,
+    "AGENT-HIJACK": 576,
+    "AGENT-CARD": 640,
+    "CARD-TEST": 720,
+    "DF-APP": 115,
+    "MULE-NET": 56,
+    "PIG-BUTCH": 240,
+    "STRUCT": 105,
+    "SYN-ID": 632
+  },
+  "params": {
+    "ATO-STUFF": {
+      "n_victims": 70.0,
+      "drain_ratio": 0.7,
+      "asn_risk": 0.8,
+      "foreign_prob": 0.7,
+      "card_legs": 2
+    },
+    "AGENT-HIJACK": {
+      "n_agents": 8.0,
+      "principals_per_agent": 36.0,
+      "purchases_per_principal": 2,
+      "attestation_prob": 0.1,
+      "cap_breach": 1.4,
+      "trust_mu": 0.35,
+      "offscope_prob": 0.6
+    },
+    "AGENT-CARD": {
+      "n_agents": 16.0,
+      "purchases_per_agent": 40.0,
+      "session_seconds": 2.0,
+      "amount_mu": 4.3,
+      "window_minutes": 30
+    },
+    "CARD-TEST": {
+      "n_campaigns": 6.0,
+      "cards_per_device": 120.0,
+      "amount_max": 3.0,
+      "burst_minutes": 20,
+      "probes_per_card": 1
+    },
+    "DF-APP": {
+      "n_victims": 80.0,
+      "amount_mult": 4.5,
+      "urgency_seconds": 45,
+      "voice_prob": 0.5,
+      "groom_prob": 0.4
+    },
+    "MULE-NET": {
+      "n_rings": 8.0,
+      "ring_size": 6,
+      "layering_hops": 3,
+      "placement": 6000,
+      "dwell_seconds": 300,
+      "fanout": 3
+    },
+    "PIG-BUTCH": {
+      "n_victims": 40.0,
+      "n_deposits": 6,
+      "escalation": 1.35,
+      "seed_amount": 250,
+      "round_bias": 0.6,
+      "crypto_prob": 0.5
+    },
+    "STRUCT": {
+      "n_campaigns": 16.0,
+      "total": 25000,
+      "threshold": 5000,
+      "n_payees": 6,
+      "spacing_min": 90
+    },
+    "SYN-ID": {
+      "n_identities": 60.0,
+      "nurture_txns": 6,
+      "bustout_ratio": 1.4,
+      "shared_device_rings": 4
+    }
+  },
+  "config": {
+    "population": 5000,
+    "days": 30,
+    "seed": 42,
+    "enabled_attacks": [
+      "ATO-STUFF",
+      "AGENT-HIJACK",
+      "AGENT-CARD",
+      "CARD-TEST",
+      "DF-APP",
+      "MULE-NET",
+      "PIG-BUTCH",
+      "STRUCT",
+      "SYN-ID"
+    ],
+    "intensity": 2.0
+  }
+}

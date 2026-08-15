@@ -1,0 +1,843 @@
+{
+  "baseline_recall": 0.7286,
+  "baseline_per_vector": {
+    "AGENT-CARD": 0.9125,
+    "AGENT-HIJACK": 0.941,
+    "ATO-STUFF": 0.0333,
+    "CARD-TEST": 0.9667,
+    "DF-APP": 0.0,
+    "MULE-NET": 0.0,
+    "PIG-BUTCH": 0.1375,
+    "STRUCT": 0.0,
+    "SYN-ID": 0.8463
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "evasive_params": {
+        "ATO-STUFF": {
+          "n_victims": 35,
+          "drain_ratio": 0.35,
+          "asn_risk": 0.1,
+          "foreign_prob": 0.597,
+          "card_legs": 5.45
+        },
+        "AGENT-HIJACK": {
+          "n_agents": 4,
+          "principals_per_agent": 18,
+          "purchases_per_principal": 1.0,
+          "attestation_prob": 0.993,
+          "cap_breach": 0.4,
+          "trust_mu": 0.175,
+          "offscope_prob": 0.6
+        },
+        "AGENT-CARD": {
+          "n_agents": 8,
+          "purchases_per_agent": 20,
+          "session_seconds": 77.98,
+          "amount_mu": 2.651,
+          "window_minutes": 30
+        },
+        "CARD-TEST": {
+          "n_campaigns": 3,
+          "cards_per_device": 60,
+          "amount_max": 3.0,
+          "burst_minutes": 20,
+          "probes_per_card": 1.0
+        },
+        "DF-APP": {
+          "n_victims": 40,
+          "amount_mult": 1.5,
+          "urgency_seconds": 3.0,
+          "voice_prob": 0.5,
+          "groom_prob": 0.0
+        },
+        "MULE-NET": {
+          "n_rings": 4,
+          "ring_size": 3.0,
+          "layering_hops": 3,
+          "placement": 500.0,
+          "dwell_seconds": 300,
+          "fanout": 1.125
+        },
+        "PIG-BUTCH": {
+          "n_victims": 20,
+          "n_deposits": 3.616,
+          "escalation": 2.131,
+          "seed_amount": 50.0,
+          "round_bias": 0.728,
+          "crypto_prob": 0.5
+        },
+        "STRUCT": {
+          "n_campaigns": 8,
+          "total": 49848.826,
+          "threshold": 555.23,
+          "n_payees": 11.406,
+          "spacing_min": 328.09
+        },
+        "SYN-ID": {
+          "n_identities": 30,
+          "nurture_txns": 25.0,
+          "bustout_ratio": 0.718,
+          "shared_device_rings": 4
+        }
+      },
+      "pre_recall": 0.192,
+      "post_recall": 0.829,
+      "pre_per_vector": {
+        "AGENT-CARD": 0.6234,
+        "AGENT-HIJACK": 0.0625,
+        "ATO-STUFF": 0.0,
+        "CARD-TEST": 0.9736,
+        "DF-APP": 0.0,
+        "MULE-NET": 0.0,
+        "PIG-BUTCH": 0.0,
+        "STRUCT": 0.0,
+        "SYN-ID": 0.0
+      },
+      "post_per_vector": {
+        "AGENT-CARD": 1.0,
+        "AGENT-HIJACK": 0.4375,
+        "ATO-STUFF": 0.0167,
+        "CARD-TEST": 0.9403,
+        "DF-APP": 0.075,
+        "MULE-NET": 0.6,
+        "PIG-BUTCH": 0.55,
+        "STRUCT": 0.8662,
+        "SYN-ID": 1.0
+      },
+      "ideation": [
+        {
+          "attack": "ATO-STUFF",
+          "variant": "Morphing Device Fingerprint Credential Stuffing (MD-FCS)",
+          "twist": "AI\u2011generated per\u2011login device telemetry that mirrors the victim\u2019s historical hardware fingerprint while rotating low\u2011risk residential IPs, and chaining multiple low\u2011value purchases across unrelated merchants to launder a final high\u2011value drain, all orchestrated in real\u2011time by a language model that adapts to detector feedback.",
+          "footprint": [
+            "Sudden spikes in device\u2011fingerprint mismatch alerts (e.g., CPU/OS combo not seen before for the account)",
+            "Burst of low\u2011value merchant transactions across disparate categories within seconds of login",
+            "Frequent OTP generation requests followed by immediate successful use (indicating OTP interception)",
+            "Micro\u2011latency between credential validation and first transaction (<2\u202fs)",
+            "Elevated proxy\u2011IP churn with consistent user\u2011agent strings"
+          ],
+          "mode": "groq:openai/gpt-oss-120b",
+          "sources": [
+            "https://sumsub.com/blog/fraud-trends/",
+            "https://sumsub.com/blog/fraud-trends/",
+            "https://www.getrealsecurity.com/resources/synthetic-identity-fraud-deepfakes-2026-deepfake-summit",
+            "https://sumsub.com/blog/fraud-trends/"
+          ]
+        },
+        {
+          "attack": "AGENT-HIJACK",
+          "variant": "Dynamic Multi\u2011Hop Token Relay with Prompt\u2011Injected Credential Refresh",
+          "twist": "The attacker creates a chain of short\u2011lived delegated tokens (hop tokens) that are auto\u2011refreshed via prompt\u2011injected commands to the AI\u2011powered payment assistant. Each hop token is issued to a distinct micro\u2011agent (containerized sandbox) that performs a single purchase before discarding the token. The assistant is coaxed into generating a fresh token on\u2011demand by embedding malicious prompts in product descriptions, causing the assistant to sign a new delegated token that inherits the original trust score but resets usage counters. This hop\u2011relay masks the original credential, spreads activity across many agents, and keeps per\u2011principal purchase volume at 0.2 while maintaining a high overall transaction volume.",
+          "footprint": [
+            "Rapid token issuance events from the same AI assistant endpoint",
+            "Short\u2011lived token IDs appearing in logs with lifetimes <30\u202fseconds",
+            "Cross\u2011merchant API calls originating from distinct container IDs but sharing identical device fingerprints",
+            "Spike in failed attestation callbacks interleaved with successful ones",
+            "Unusual pattern of product\u2011page text containing hidden instruction strings (prompt injection markers)",
+            "Elevated credit\u2011limit usage bursts followed by immediate token revocation"
+          ],
+          "mode": "groq:openai/gpt-oss-120b",
+          "sources": [
+            "https://corporate.visa.com/en/sites/visa-perspectives/security-trust/the-threats-landscape-of-agentic-commerce.html",
+            "https://www.trustsphere.ai/post/agentic-checkout-arrives-why-agent-present-card-payments-break-the-assumptions-fraud-systems-were",
+            "https://www.digitalapplied.com/blog/agent-checkout-authentication-card-networks-2026",
+            "https://www.ravelin.com/blog/the-agentic-commerce-gold-rush-risk"
+          ]
+        },
+        {
+          "attack": "AGENT-CARD",
+          "variant": "AGENT-CARD-adaptive",
+          "twist": "Blend agentic-commerce carding (autonomous checkout abuse) with the tradecraft in 'Agentic commerce fraud surface (2026)': stagger events to mimic legitimate cadence and reuse aged, low-risk infrastructure so per-event anomaly stays below threshold.",
+          "footprint": [
+            "agent channel + agentic_token",
+            "machine-speed session timing",
+            "headless device",
+            "atypical purchase cadence",
+            "cross-entity correlation over time"
+          ],
+          "mode": "offline",
+          "sources": [
+            "https://www.ravelin.com/blog/the-agentic-commerce-gold-rush-risk",
+            "https://www.americanbanker.com/payments/news/as-agentic-commerce-grows-risks-abound",
+            "https://unit42.paloaltonetworks.com/retail-fraud-agentic-ai/",
+            "https://www.ldotr.red/post/ai-agent-commerce-fraud"
+          ]
+        },
+        {
+          "attack": "CARD-TEST",
+          "variant": "CARD-TEST-adaptive",
+          "twist": "Blend automated card testing / bin attack with the tradecraft in 'GenAI synthetic identity fabrication': stagger events to mimic legitimate cadence and reuse aged, low-risk infrastructure so per-event anomaly stays below threshold.",
+          "footprint": [
+            "micro-amount bursts",
+            "high decline ratio",
+            "many cards / one device or IP",
+            "sequential BIN patterns",
+            "cross-entity correlation over time"
+          ],
+          "mode": "offline",
+          "sources": [
+            "https://withpersona.com/blog/7-ways-synthetic-identity-fraud-is-changing-in-2026",
+            "https://www.pwc.com/cz/cs/blog/rizeni-rizik/the-fraud-trend-to-watch-in-2026-and-beyond.html"
+          ]
+        },
+        {
+          "attack": "DF-APP",
+          "variant": "DF-APP-adaptive",
+          "twist": "Blend deepfake-authorised push payment (app) scam with the tradecraft in 'India real-time rails - mules, APP scams and deepfakes (2026)': stagger events to mimic legitimate cadence and reuse aged, low-risk infrastructure so per-event anomaly stays below threshold.",
+          "footprint": [
+            "first-time payee",
+            "voice-auth channel",
+            "amount spike vs history",
+            "session urgency (short deliberation)",
+            "cross-entity correlation over time"
+          ],
+          "mode": "offline",
+          "sources": [
+            "https://the420.in/india-mule-accounts-upi-fraud-march-2026-report/",
+            "https://www.newsx.com/business/worried-about-upi-fraud-by-scamsters-heres-how-npci-will-use-ai-to-take-on-cheats-242854/",
+            "https://scamwatchhq.com/india-scams-2026-digital-arrest-upi-fraud-epidemic/",
+            "https://www.fraudintel.in/blog/upi-fraud-detection-api-india"
+          ]
+        },
+        {
+          "attack": "MULE-NET",
+          "variant": "MULE-NET-adaptive",
+          "twist": "Blend money-mule network orchestration with the tradecraft in 'India real-time rails - mules, APP scams and deepfakes (2026)': stagger events to mimic legitimate cadence and reuse aged, low-risk infrastructure so per-event anomaly stays below threshold.",
+          "footprint": [
+            "high in/out degree",
+            "short dwell time of funds",
+            "cyclic flows",
+            "new accounts with immediate high throughput",
+            "cross-entity correlation over time"
+          ],
+          "mode": "offline",
+          "sources": [
+            "https://the420.in/india-mule-accounts-upi-fraud-march-2026-report/",
+            "https://www.newsx.com/business/worried-about-upi-fraud-by-scamsters-heres-how-npci-will-use-ai-to-take-on-cheats-242854/",
+            "https://scamwatchhq.com/india-scams-2026-digital-arrest-upi-fraud-epidemic/",
+            "https://www.fraudintel.in/blog/upi-fraud-detection-api-india"
+          ]
+        },
+        {
+          "attack": "PIG-BUTCH",
+          "variant": "PIG-BUTCH-adaptive",
+          "twist": "Blend real-time investment ('pig-butchering') scam with the tradecraft in 'Deepfake-authorised push payment (APP) scam': stagger events to mimic legitimate cadence and reuse aged, low-risk infrastructure so per-event anomaly stays below threshold.",
+          "footprint": [
+            "escalating transfer sizes to same new payee",
+            "crypto/high-risk off-ramp",
+            "round-number ladder",
+            "no prior payee relationship",
+            "cross-entity correlation over time"
+          ],
+          "mode": "offline",
+          "sources": [
+            "https://thepaypers.com/fraud-and-fincrime/expert-views/2026-fraud-forecast-ai-deepfakes-and-rising-cybercrime-risks",
+            "https://scamwatchhq.com/india-scams-2026-digital-arrest-upi-fraud-epidemic/"
+          ]
+        },
+        {
+          "attack": "STRUCT",
+          "variant": "STRUCT-adaptive",
+          "twist": "Blend structuring / velocity threshold evasion with the tradecraft in 'Adversarial evasion of ML controls': stagger events to mimic legitimate cadence and reuse aged, low-risk infrastructure so per-event anomaly stays below threshold.",
+          "footprint": [
+            "amounts clustered just below round thresholds",
+            "even spacing",
+            "fan across payees",
+            "cross-entity correlation over time"
+          ],
+          "mode": "offline",
+          "sources": [
+            "https://www.nature.com/articles/s41598-025-27010-z"
+          ]
+        },
+        {
+          "attack": "SYN-ID",
+          "variant": "SYN-ID-adaptive",
+          "twist": "Blend genai synthetic identity fabrication with the tradecraft in 'First-party / friendly-fraud bust-out': stagger events to mimic legitimate cadence and reuse aged, low-risk infrastructure so per-event anomaly stays below threshold.",
+          "footprint": [
+            "thin credit file",
+            "sudden credit-line utilisation",
+            "clustered device/IP reuse",
+            "young account + high amount-to-balance ratio",
+            "cross-entity correlation over time"
+          ],
+          "mode": "offline",
+          "sources": [
+            "https://withpersona.com/blog/7-ways-synthetic-identity-fraud-is-changing-in-2026"
+          ]
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "evasive_params": {
+        "ATO-STUFF": {
+          "n_victims": 35,
+          "drain_ratio": 1.0,
+          "asn_risk": 0.236,
+          "foreign_prob": 0.7,
+          "card_legs": 6.0
+        },
+        "AGENT-HIJACK": {
+          "n_agents": 4,
+          "principals_per_agent": 18,
+          "purchases_per_principal": 6.0,
+          "attestation_prob": 0.1,
+          "cap_breach": 1.109,
+          "trust_mu": 0.934,
+          "offscope_prob": 0.244
+        },
+        "AGENT-CARD": {
+          "n_agents": 8,
+          "purchases_per_agent": 20,
+          "session_seconds": 32.309,
+          "amount_mu": 5.594,
+          "window_minutes": 183.429
+        },
+        "CARD-TEST": {
+          "n_campaigns": 3,
+          "cards_per_device": 60,
+          "amount_max": 17.904,
+          "burst_minutes": 20,
+          "probes_per_card": 1.843
+        },
+        "DF-APP": {
+          "n_victims": 40,
+          "amount_mult": 1.5,
+          "urgency_seconds": 281.92,
+          "voice_prob": 0.5,
+          "groom_prob": 0.438
+        },
+        "MULE-NET": {
+          "n_rings": 4,
+          "ring_size": 3.0,
+          "layering_hops": 4.456,
+          "placement": 500.0,
+          "dwell_seconds": 300,
+          "fanout": 1.0
+        },
+        "PIG-BUTCH": {
+          "n_victims": 20,
+          "n_deposits": 12.936,
+          "escalation": 1.0,
+          "seed_amount": 50.0,
+          "round_bias": 0.6,
+          "crypto_prob": 0.0
+        },
+        "STRUCT": {
+          "n_campaigns": 8,
+          "total": 136966.442,
+          "threshold": 500.0,
+          "n_payees": 12.115,
+          "spacing_min": 1260.662
+        },
+        "SYN-ID": {
+          "n_identities": 30,
+          "nurture_txns": 4.846,
+          "bustout_ratio": 2.564,
+          "shared_device_rings": 4
+        }
+      },
+      "pre_recall": 0.3373,
+      "post_recall": 0.9957,
+      "pre_per_vector": {
+        "AGENT-CARD": 0.9375,
+        "AGENT-HIJACK": 0.4554,
+        "ATO-STUFF": 0.0122,
+        "CARD-TEST": 0.9708,
+        "DF-APP": 0.0,
+        "MULE-NET": 0.3333,
+        "PIG-BUTCH": 0.0,
+        "STRUCT": 0.0,
+        "SYN-ID": 1.0
+      },
+      "post_per_vector": {
+        "AGENT-CARD": 1.0,
+        "AGENT-HIJACK": 1.0,
+        "ATO-STUFF": 0.9959,
+        "CARD-TEST": 0.9556,
+        "DF-APP": 1.0,
+        "MULE-NET": 1.0,
+        "PIG-BUTCH": 1.0,
+        "STRUCT": 1.0,
+        "SYN-ID": 1.0
+      },
+      "ideation": [
+        {
+          "attack": "ATO-STUFF",
+          "variant": "ATO-STUFF-adaptive",
+          "twist": "Blend ai-orchestrated account takeover (credential stuffing) with the tradecraft in 'SIM-swap / OTP interception': stagger events to mimic legitimate cadence and reuse aged, low-risk infrastructure so per-event anomaly stays below threshold.",
+          "footprint": [
+            "new device on aged account",
+            "geo/ASN anomaly",
+            "beneficiary/limit change then payout",
+            "impossible travel",
+            "cross-entity correlation over time"
+          ],
+          "mode": "offline",
+          "sources": [
+            "https://sumsub.com/blog/fraud-trends/"
+          ]
+        },
+        {
+          "attack": "AGENT-HIJACK",
+          "variant": "AGENT-HIJACK-adaptive",
+          "twist": "Blend delegated-token / agent-identity abuse with the tradecraft in 'Agentic commerce fraud surface (2026)': stagger events to mimic legitimate cadence and reuse aged, low-risk infrastructure so per-event anomaly stays below threshold.",
+          "footprint": [
+            "missing / replayed network attestation",
+            "low agent-directory trust",
+            "amount over the delegated cap",
+            "off-scope high-risk merchant",
+            "cross-entity correlation over time"
+          ],
+          "mode": "offline",
+          "sources": [
+            "https://www.ravelin.com/blog/the-agentic-commerce-gold-rush-risk",
+            "https://www.americanbanker.com/payments/news/as-agentic-commerce-grows-risks-abound",
+            "https://unit42.paloaltonetworks.com/retail-fraud-agentic-ai/",
+            "https://www.ldotr.red/post/ai-agent-commerce-fraud"
+          ]
+        },
+        {
+          "attack": "AGENT-CARD",
+          "variant": "AGENT-CARD-adaptive",
+          "twist": "Blend agentic-commerce carding (autonomous checkout abuse) with the tradecraft in 'Agentic commerce fraud surface (2026)': stagger events to mimic legitimate cadence and reuse aged, low-risk infrastructure so per-event anomaly stays below threshold.",
+          "footprint": [
+            "agent channel + agentic_token",
+            "machine-speed session timing",
+            "headless device",
+            "atypical purchase cadence",
+            "cross-entity correlation over time"
+          ],
+          "mode": "offline",
+          "sources": [
+            "https://www.ravelin.com/blog/the-agentic-commerce-gold-rush-risk",
+            "https://www.americanbanker.com/payments/news/as-agentic-commerce-grows-risks-abound",
+            "https://unit42.paloaltonetworks.com/retail-fraud-agentic-ai/",
+            "https://www.ldotr.red/post/ai-agent-commerce-fraud"
+          ]
+        },
+        {
+          "attack": "CARD-TEST",
+          "variant": "CARD-TEST-adaptive",
+          "twist": "Blend automated card testing / bin attack with the tradecraft in 'GenAI synthetic identity fabrication': stagger events to mimic legitimate cadence and reuse aged, low-risk infrastructure so per-event anomaly stays below threshold.",
+          "footprint": [
+            "micro-amount bursts",
+            "high decline ratio",
+            "many cards / one device or IP",
+            "sequential BIN patterns",
+            "cross-entity correlation over time"
+          ],
+          "mode": "offline",
+          "sources": [
+            "https://withpersona.com/blog/7-ways-synthetic-identity-fraud-is-changing-in-2026",
+            "https://www.pwc.com/cz/cs/blog/rizeni-rizik/the-fraud-trend-to-watch-in-2026-and-beyond.html"
+          ]
+        },
+        {
+          "attack": "DF-APP",
+          "variant": "DF-APP-adaptive",
+          "twist": "Blend deepfake-authorised push payment (app) scam with the tradecraft in 'India real-time rails - mules, APP scams and deepfakes (2026)': stagger events to mimic legitimate cadence and reuse aged, low-risk infrastructure so per-event anomaly stays below threshold.",
+          "footprint": [
+            "first-time payee",
+            "voice-auth channel",
+            "amount spike vs history",
+            "session urgency (short deliberation)",
+            "cross-entity correlation over time"
+          ],
+          "mode": "offline",
+          "sources": [
+            "https://the420.in/india-mule-accounts-upi-fraud-march-2026-report/",
+            "https://www.newsx.com/business/worried-about-upi-fraud-by-scamsters-heres-how-npci-will-use-ai-to-take-on-cheats-242854/",
+            "https://scamwatchhq.com/india-scams-2026-digital-arrest-upi-fraud-epidemic/",
+            "https://www.fraudintel.in/blog/upi-fraud-detection-api-india"
+          ]
+        },
+        {
+          "attack": "MULE-NET",
+          "variant": "MULE-NET-adaptive",
+          "twist": "Blend money-mule network orchestration with the tradecraft in 'India real-time rails - mules, APP scams and deepfakes (2026)': stagger events to mimic legitimate cadence and reuse aged, low-risk infrastructure so per-event anomaly stays below threshold.",
+          "footprint": [
+            "high in/out degree",
+            "short dwell time of funds",
+            "cyclic flows",
+            "new accounts with immediate high throughput",
+            "cross-entity correlation over time"
+          ],
+          "mode": "offline",
+          "sources": [
+            "https://the420.in/india-mule-accounts-upi-fraud-march-2026-report/",
+            "https://www.newsx.com/business/worried-about-upi-fraud-by-scamsters-heres-how-npci-will-use-ai-to-take-on-cheats-242854/",
+            "https://scamwatchhq.com/india-scams-2026-digital-arrest-upi-fraud-epidemic/",
+            "https://www.fraudintel.in/blog/upi-fraud-detection-api-india"
+          ]
+        },
+        {
+          "attack": "PIG-BUTCH",
+          "variant": "PIG-BUTCH-adaptive",
+          "twist": "Blend real-time investment ('pig-butchering') scam with the tradecraft in 'Deepfake-authorised push payment (APP) scam': stagger events to mimic legitimate cadence and reuse aged, low-risk infrastructure so per-event anomaly stays below threshold.",
+          "footprint": [
+            "escalating transfer sizes to same new payee",
+            "crypto/high-risk off-ramp",
+            "round-number ladder",
+            "no prior payee relationship",
+            "cross-entity correlation over time"
+          ],
+          "mode": "offline",
+          "sources": [
+            "https://thepaypers.com/fraud-and-fincrime/expert-views/2026-fraud-forecast-ai-deepfakes-and-rising-cybercrime-risks",
+            "https://scamwatchhq.com/india-scams-2026-digital-arrest-upi-fraud-epidemic/"
+          ]
+        },
+        {
+          "attack": "STRUCT",
+          "variant": "STRUCT-adaptive",
+          "twist": "Blend structuring / velocity threshold evasion with the tradecraft in 'Adversarial evasion of ML controls': stagger events to mimic legitimate cadence and reuse aged, low-risk infrastructure so per-event anomaly stays below threshold.",
+          "footprint": [
+            "amounts clustered just below round thresholds",
+            "even spacing",
+            "fan across payees",
+            "cross-entity correlation over time"
+          ],
+          "mode": "offline",
+          "sources": [
+            "https://www.nature.com/articles/s41598-025-27010-z"
+          ]
+        },
+        {
+          "attack": "SYN-ID",
+          "variant": "SYN-ID-adaptive",
+          "twist": "Blend genai synthetic identity fabrication with the tradecraft in 'First-party / friendly-fraud bust-out': stagger events to mimic legitimate cadence and reuse aged, low-risk infrastructure so per-event anomaly stays below threshold.",
+          "footprint": [
+            "thin credit file",
+            "sudden credit-line utilisation",
+            "clustered device/IP reuse",
+            "young account + high amount-to-balance ratio",
+            "cross-entity correlation over time"
+          ],
+          "mode": "offline",
+          "sources": [
+            "https://withpersona.com/blog/7-ways-synthetic-identity-fraud-is-changing-in-2026"
+          ]
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "evasive_params": {
+        "ATO-STUFF": {
+          "n_victims": 35,
+          "drain_ratio": 0.2,
+          "asn_risk": 0.899,
+          "foreign_prob": 0.7,
+          "card_legs": 2.83
+        },
+        "AGENT-HIJACK": {
+          "n_agents": 4,
+          "principals_per_agent": 18,
+          "purchases_per_principal": 1.156,
+          "attestation_prob": 0.272,
+          "cap_breach": 0.592,
+          "trust_mu": 0.95,
+          "offscope_prob": 1.0
+        },
+        "AGENT-CARD": {
+          "n_agents": 8,
+          "purchases_per_agent": 20,
+          "session_seconds": 0.3,
+          "amount_mu": 2.87,
+          "window_minutes": 135.084
+        },
+        "CARD-TEST": {
+          "n_campaigns": 3,
+          "cards_per_device": 60,
+          "amount_max": 0.5,
+          "burst_minutes": 20,
+          "probes_per_card": 1.994
+        },
+        "DF-APP": {
+          "n_victims": 40,
+          "amount_mult": 1.5,
+          "urgency_seconds": 13.888,
+          "voice_prob": 0.0,
+          "groom_prob": 0.203
+        },
+        "MULE-NET": {
+          "n_rings": 4,
+          "ring_size": 8.513,
+          "layering_hops": 3,
+          "placement": 500.0,
+          "dwell_seconds": 13110.665,
+          "fanout": 8.0
+        },
+        "PIG-BUTCH": {
+          "n_victims": 20,
+          "n_deposits": 14.858,
+          "escalation": 1.35,
+          "seed_amount": 50.0,
+          "round_bias": 0.0,
+          "crypto_prob": 0.5
+        },
+        "STRUCT": {
+          "n_campaigns": 8,
+          "total": 58601.561,
+          "threshold": 500.0,
+          "n_payees": 2.0,
+          "spacing_min": 131.959
+        },
+        "SYN-ID": {
+          "n_identities": 30,
+          "nurture_txns": 0.0,
+          "bustout_ratio": 2.236,
+          "shared_device_rings": 2.428
+        }
+      },
+      "pre_recall": 0.996,
+      "post_recall": 0.9914,
+      "pre_per_vector": {
+        "AGENT-CARD": 1.0,
+        "AGENT-HIJACK": 1.0,
+        "ATO-STUFF": 1.0,
+        "CARD-TEST": 0.9722,
+        "DF-APP": 1.0,
+        "MULE-NET": 1.0,
+        "PIG-BUTCH": 1.0,
+        "STRUCT": 1.0,
+        "SYN-ID": 1.0
+      },
+      "post_per_vector": {
+        "AGENT-CARD": 1.0,
+        "AGENT-HIJACK": 1.0,
+        "ATO-STUFF": 1.0,
+        "CARD-TEST": 0.9403,
+        "DF-APP": 1.0,
+        "MULE-NET": 1.0,
+        "PIG-BUTCH": 1.0,
+        "STRUCT": 1.0,
+        "SYN-ID": 1.0
+      },
+      "ideation": [
+        {
+          "attack": "ATO-STUFF",
+          "variant": "ATO-STUFF-adaptive",
+          "twist": "Blend ai-orchestrated account takeover (credential stuffing) with the tradecraft in 'SIM-swap / OTP interception': stagger events to mimic legitimate cadence and reuse aged, low-risk infrastructure so per-event anomaly stays below threshold.",
+          "footprint": [
+            "new device on aged account",
+            "geo/ASN anomaly",
+            "beneficiary/limit change then payout",
+            "impossible travel",
+            "cross-entity correlation over time"
+          ],
+          "mode": "offline",
+          "sources": [
+            "https://sumsub.com/blog/fraud-trends/"
+          ]
+        },
+        {
+          "attack": "AGENT-HIJACK",
+          "variant": "AGENT-HIJACK-adaptive",
+          "twist": "Blend delegated-token / agent-identity abuse with the tradecraft in 'Agentic commerce fraud surface (2026)': stagger events to mimic legitimate cadence and reuse aged, low-risk infrastructure so per-event anomaly stays below threshold.",
+          "footprint": [
+            "missing / replayed network attestation",
+            "low agent-directory trust",
+            "amount over the delegated cap",
+            "off-scope high-risk merchant",
+            "cross-entity correlation over time"
+          ],
+          "mode": "offline",
+          "sources": [
+            "https://www.ravelin.com/blog/the-agentic-commerce-gold-rush-risk",
+            "https://www.americanbanker.com/payments/news/as-agentic-commerce-grows-risks-abound",
+            "https://unit42.paloaltonetworks.com/retail-fraud-agentic-ai/",
+            "https://www.ldotr.red/post/ai-agent-commerce-fraud"
+          ]
+        },
+        {
+          "attack": "AGENT-CARD",
+          "variant": "AGENT-CARD-adaptive",
+          "twist": "Blend agentic-commerce carding (autonomous checkout abuse) with the tradecraft in 'Agentic commerce fraud surface (2026)': stagger events to mimic legitimate cadence and reuse aged, low-risk infrastructure so per-event anomaly stays below threshold.",
+          "footprint": [
+            "agent channel + agentic_token",
+            "machine-speed session timing",
+            "headless device",
+            "atypical purchase cadence",
+            "cross-entity correlation over time"
+          ],
+          "mode": "offline",
+          "sources": [
+            "https://www.ravelin.com/blog/the-agentic-commerce-gold-rush-risk",
+            "https://www.americanbanker.com/payments/news/as-agentic-commerce-grows-risks-abound",
+            "https://unit42.paloaltonetworks.com/retail-fraud-agentic-ai/",
+            "https://www.ldotr.red/post/ai-agent-commerce-fraud"
+          ]
+        },
+        {
+          "attack": "CARD-TEST",
+          "variant": "CARD-TEST-adaptive",
+          "twist": "Blend automated card testing / bin attack with the tradecraft in 'GenAI synthetic identity fabrication': stagger events to mimic legitimate cadence and reuse aged, low-risk infrastructure so per-event anomaly stays below threshold.",
+          "footprint": [
+            "micro-amount bursts",
+            "high decline ratio",
+            "many cards / one device or IP",
+            "sequential BIN patterns",
+            "cross-entity correlation over time"
+          ],
+          "mode": "offline",
+          "sources": [
+            "https://withpersona.com/blog/7-ways-synthetic-identity-fraud-is-changing-in-2026",
+            "https://www.pwc.com/cz/cs/blog/rizeni-rizik/the-fraud-trend-to-watch-in-2026-and-beyond.html"
+          ]
+        },
+        {
+          "attack": "DF-APP",
+          "variant": "DF-APP-adaptive",
+          "twist": "Blend deepfake-authorised push payment (app) scam with the tradecraft in 'India real-time rails - mules, APP scams and deepfakes (2026)': stagger events to mimic legitimate cadence and reuse aged, low-risk infrastructure so per-event anomaly stays below threshold.",
+          "footprint": [
+            "first-time payee",
+            "voice-auth channel",
+            "amount spike vs history",
+            "session urgency (short deliberation)",
+            "cross-entity correlation over time"
+          ],
+          "mode": "offline",
+          "sources": [
+            "https://the420.in/india-mule-accounts-upi-fraud-march-2026-report/",
+            "https://www.newsx.com/business/worried-about-upi-fraud-by-scamsters-heres-how-npci-will-use-ai-to-take-on-cheats-242854/",
+            "https://scamwatchhq.com/india-scams-2026-digital-arrest-upi-fraud-epidemic/",
+            "https://www.fraudintel.in/blog/upi-fraud-detection-api-india"
+          ]
+        },
+        {
+          "attack": "MULE-NET",
+          "variant": "MULE-NET-adaptive",
+          "twist": "Blend money-mule network orchestration with the tradecraft in 'India real-time rails - mules, APP scams and deepfakes (2026)': stagger events to mimic legitimate cadence and reuse aged, low-risk infrastructure so per-event anomaly stays below threshold.",
+          "footprint": [
+            "high in/out degree",
+            "short dwell time of funds",
+            "cyclic flows",
+            "new accounts with immediate high throughput",
+            "cross-entity correlation over time"
+          ],
+          "mode": "offline",
+          "sources": [
+            "https://the420.in/india-mule-accounts-upi-fraud-march-2026-report/",
+            "https://www.newsx.com/business/worried-about-upi-fraud-by-scamsters-heres-how-npci-will-use-ai-to-take-on-cheats-242854/",
+            "https://scamwatchhq.com/india-scams-2026-digital-arrest-upi-fraud-epidemic/",
+            "https://www.fraudintel.in/blog/upi-fraud-detection-api-india"
+          ]
+        },
+        {
+          "attack": "PIG-BUTCH",
+          "variant": "PIG-BUTCH-adaptive",
+          "twist": "Blend real-time investment ('pig-butchering') scam with the tradecraft in 'Deepfake-authorised push payment (APP) scam': stagger events to mimic legitimate cadence and reuse aged, low-risk infrastructure so per-event anomaly stays below threshold.",
+          "footprint": [
+            "escalating transfer sizes to same new payee",
+            "crypto/high-risk off-ramp",
+            "round-number ladder",
+            "no prior payee relationship",
+            "cross-entity correlation over time"
+          ],
+          "mode": "offline",
+          "sources": [
+            "https://thepaypers.com/fraud-and-fincrime/expert-views/2026-fraud-forecast-ai-deepfakes-and-rising-cybercrime-risks",
+            "https://scamwatchhq.com/india-scams-2026-digital-arrest-upi-fraud-epidemic/"
+          ]
+        },
+        {
+          "attack": "STRUCT",
+          "variant": "STRUCT-adaptive",
+          "twist": "Blend structuring / velocity threshold evasion with the tradecraft in 'Adversarial evasion of ML controls': stagger events to mimic legitimate cadence and reuse aged, low-risk infrastructure so per-event anomaly stays below threshold.",
+          "footprint": [
+            "amounts clustered just below round thresholds",
+            "even spacing",
+            "fan across payees",
+            "cross-entity correlation over time"
+          ],
+          "mode": "offline",
+          "sources": [
+            "https://www.nature.com/articles/s41598-025-27010-z"
+          ]
+        },
+        {
+          "attack": "SYN-ID",
+          "variant": "SYN-ID-adaptive",
+          "twist": "Blend genai synthetic identity fabrication with the tradecraft in 'First-party / friendly-fraud bust-out': stagger events to mimic legitimate cadence and reuse aged, low-risk infrastructure so per-event anomaly stays below threshold.",
+          "footprint": [
+            "thin credit file",
+            "sudden credit-line utilisation",
+            "clustered device/IP reuse",
+            "young account + high amount-to-balance ratio",
+            "cross-entity correlation over time"
+          ],
+          "mode": "offline",
+          "sources": [
+            "https://withpersona.com/blog/7-ways-synthetic-identity-fraud-is-changing-in-2026"
+          ]
+        }
+      ]
+    }
+  ],
+  "hardening_curve": [
+    {
+      "round": 0,
+      "pre_recall": 0.7286,
+      "post_recall": 0.7286,
+      "threshold": 1.0
+    },
+    {
+      "round": 1,
+      "pre_recall": 0.192,
+      "post_recall": 0.829,
+      "threshold": 1.0
+    },
+    {
+      "round": 2,
+      "pre_recall": 0.3373,
+      "post_recall": 0.9957,
+      "threshold": 1.0
+    },
+    {
+      "round": 3,
+      "pre_recall": 0.996,
+      "post_recall": 0.9914,
+      "threshold": 1.0
+    }
+  ],
+  "meta": {
+    "population": 3000,
+    "days": 30,
+    "seed": 42,
+    "rounds": 3,
+    "intensity": 2.0,
+    "threshold": 1.0,
+    "attacks": [
+      "ATO-STUFF",
+      "AGENT-HIJACK",
+      "AGENT-CARD",
+      "CARD-TEST",
+      "DF-APP",
+      "MULE-NET",
+      "PIG-BUTCH",
+      "STRUCT",
+      "SYN-ID"
+    ],
+    "orchestration": "langgraph"
+  },
+  "trace": [
+    "baseline: detector recall 72.9% @ thr=1.000",
+    "[round 1] red_team: evolved evasive parameters for 9 vectors",
+    "[round 1] recon: 9 RAG-grounded variants proposed (groq:openai/gpt-oss-120b)",
+    "[round 1] attack: evasive stream breaches to 19.2% recall",
+    "[round 1] blue_team: retrained, recovers to 82.9% recall",
+    "[round 2] red_team: evolved evasive parameters for 9 vectors",
+    "[round 2] recon: 9 RAG-grounded variants proposed (offline)",
+    "[round 2] attack: evasive stream breaches to 33.7% recall",
+    "[round 2] blue_team: retrained, recovers to 99.6% recall",
+    "[round 3] red_team: evolved evasive parameters for 9 vectors",
+    "[round 3] recon: 9 RAG-grounded variants proposed (offline)",
+    "[round 3] attack: evasive stream breaches to 99.6% recall",
+    "[round 3] blue_team: retrained, recovers to 99.1% recall"
+  ]
+}

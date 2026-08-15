@@ -1,0 +1,28 @@
+{
+  "dataset": "ULB credit-card fraud (OpenML 1597)",
+  "n": 284807,
+  "baselines": {
+    "Logistic Regression": {
+      "roc_auc": 0.9696,
+      "pr_auc": 0.7037
+    },
+    "Random Forest": {
+      "roc_auc": 0.9399,
+      "pr_auc": 0.8152
+    },
+    "LightGBM": {
+      "roc_auc": 0.9502,
+      "pr_auc": 0.8079
+    },
+    "Chimera (two-channel)": {
+      "roc_auc": 0.9508,
+      "pr_auc": 0.7834
+    }
+  },
+  "closed_loop_on_real": {
+    "baseline_recall": 0.8378,
+    "under_evasion": 0.5878,
+    "after_retrain": 1.0,
+    "threshold": 0.0
+  }
+}

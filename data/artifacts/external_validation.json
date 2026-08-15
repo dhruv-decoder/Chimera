@@ -1,0 +1,26 @@
+{
+  "dataset": "ULB credit-card fraud (OpenML 1597)",
+  "n": 284807,
+  "n_fraud": 492,
+  "fraud_rate": 0.00173,
+  "supervised": {
+    "roc_auc": 0.9502,
+    "pr_auc": 0.8079
+  },
+  "novelty_only": {
+    "roc_auc": 0.9447,
+    "pr_auc": 0.1979
+  },
+  "ensemble": {
+    "roc_auc": 0.9508,
+    "pr_auc": 0.7834
+  },
+  "best_single_feature_auc": 0.9335,
+  "fidelity_vs_synthetic": {
+    "real_fraud_rate": 0.00173,
+    "synthetic_fraud_rate": 0.02308,
+    "real_best_single_feature_auc": 0.9335,
+    "synthetic_best_single_feature_auc": 0.835,
+    "note": "synthetic benchmark is not trivially separable - single-feature AUC is comparable to (in fact lower than) the real dataset, so results on it are meaningful."
+  }
+}

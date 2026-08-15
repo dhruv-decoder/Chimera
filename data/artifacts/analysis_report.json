@@ -1,0 +1,63 @@
+{
+  "fidelity": {
+    "n_total": 237905,
+    "fraud_rate": 0.01385,
+    "amount_median_legit": 31.0,
+    "amount_median_fraud": 39.97,
+    "best_single_feature": "acct_in_deg",
+    "best_single_feature_auc": 0.835,
+    "top_single_feature_aucs": [
+      {
+        "feature": "acct_in_deg",
+        "auc": 0.835
+      },
+      {
+        "feature": "acct_pagerank",
+        "auc": 0.8277
+      },
+      {
+        "feature": "acct_out_deg",
+        "auc": 0.791
+      },
+      {
+        "feature": "log_session",
+        "auc": 0.7589
+      },
+      {
+        "feature": "dev_distinct_accounts",
+        "auc": 0.7527
+      },
+      {
+        "feature": "log_age",
+        "auc": 0.7454
+      },
+      {
+        "feature": "hour",
+        "auc": 0.7448
+      },
+      {
+        "feature": "ip_asn_risk",
+        "auc": 0.7344
+      }
+    ],
+    "hard_negative_share": 0.0636
+  },
+  "ablation": {
+    "logistic_regression": {
+      "roc_auc": 0.9978,
+      "pr_auc": 0.9569
+    },
+    "isolation_forest_only": {
+      "roc_auc": 0.9462,
+      "pr_auc": 0.2392
+    },
+    "lightgbm_only": {
+      "roc_auc": 1.0,
+      "pr_auc": 0.9998
+    },
+    "full_ensemble": {
+      "roc_auc": 0.9996,
+      "pr_auc": 0.9978
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "attacks": 9,
+  "offline": {
+    "unique_variant_names": 9,
+    "twist_vocabulary": 67,
+    "unique_footprint_signals": 36
+  },
+  "llm": {
+    "live_variants": 9,
+    "unique_variant_names": 9,
+    "twist_vocabulary": 163,
+    "unique_footprint_signals": 39
+  },
+  "note": "the offline planner is a deterministic template (near-identical twists, small vocabulary); the LLM proposes a far larger, more varied hypothesis space even on a handful of live calls. The offline path exists only so the loop never stalls, not because it matches the model."
+}

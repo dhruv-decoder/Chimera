@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+backend/.venv/
+*.egg-info/
+.pytest_cache/
+
+# Node / Next
+node_modules/
+frontend/.next/
+frontend/out/
+frontend/next-env.d.ts
+
+# Deck build intermediates (the rendered PDF is committed; these are not)
+docs/deck.html
+docs/deck_previews/
+
+# Artifacts: JSON reports + the trained detector are committed so the API deploys
+# with zero build-time training. Large intermediate data stays out.
+data/artifacts/*.parquet
+data/artifacts/dataset.*
+
+# Env / secrets
+.env
+*.local
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Real external datasets (cached, never committed)
+data/external/
+
+# Stray editor/screenshot drops at repo root
+/Screenshot*.png

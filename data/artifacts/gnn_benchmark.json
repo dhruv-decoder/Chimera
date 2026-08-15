@@ -1,0 +1,22 @@
+{
+  "n_nodes": 3390,
+  "n_fraud_nodes": 554,
+  "fraud_node_rate": 0.1634,
+  "n_features": 8,
+  "eval_note": "node-classification on the account graph; test-node labels are never used in training. Gradient boosting sees the same node features without message passing, isolating the graph's value.",
+  "gradient_boosting": {
+    "roc_auc": 0.8907,
+    "pr_auc": 0.8439
+  },
+  "graphsage_gnn": {
+    "roc_auc": 0.9996,
+    "pr_auc": 0.9977
+  },
+  "graphsage_inductive": {
+    "roc_auc": 0.9982,
+    "pr_auc": 0.9918,
+    "note": "test-node edges removed during training (no graph leakage)"
+  },
+  "pr_auc_lift": 0.1538,
+  "pr_auc_lift_inductive": 0.1479
+}
