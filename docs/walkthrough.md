@@ -405,11 +405,11 @@ degrades gracefully to 0.78 at 0.1%; alerts per 10k fall from ~140 to ~12 as
 prevalence drops. Real monitoring runs at low prevalence, and the detector holds.
 
 **Baselines and the loop on real data.** On the ULB real benchmark, standard models
-and Chimera's ensemble are close (held-out PR-AUC: Random Forest 0.82, LightGBM 0.81,
-Chimera 0.78, Logistic Regression 0.70), which is the point - the contribution is not
-a marginally-better static classifier, it is the loop. The loop is also model-agnostic:
-the base learner is a swap, not a redesign, so adopting the stronger Random Forest or
-LightGBM baseline as the supervised channel is a config change. And the loop transfers
+and Chimera's ensemble are close (held-out PR-AUC: XGBoost 0.84, Random Forest 0.82,
+LightGBM 0.81, Chimera 0.78, Logistic Regression 0.70), which is the point - the
+contribution is not a marginally-better static classifier, it is the loop. The loop is
+also model-agnostic: the base learner is a swap, not a redesign, so adopting the
+stronger XGBoost or Random Forest baseline as the supervised channel is a config change. And the loop transfers
 to real fraud: perturbing real fraud toward the legitimate distribution drops recall
 from 84% to 59%, and retraining on those evasive samples recovers it to 100% at the same
 operating threshold (`scripts/benchmark_baselines.py`, `notebooks/external_benchmark.ipynb`).

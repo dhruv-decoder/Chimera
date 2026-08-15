@@ -10,6 +10,10 @@
       "roc_auc": 0.9399,
       "pr_auc": 0.8152
     },
+    "XGBoost": {
+      "roc_auc": 0.9686,
+      "pr_auc": 0.8422
+    },
     "LightGBM": {
       "roc_auc": 0.9502,
       "pr_auc": 0.8079

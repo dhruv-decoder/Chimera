@@ -34,6 +34,7 @@ dev = [
     "matplotlib>=3.9",
     "shap>=0.46",
     "python-pptx>=0.6.23",
+    "xgboost>=2.0",   # the XGBoost baseline in scripts/benchmark_baselines.py
 ]
 # Graph neural network benchmark (optional; heavy). CPU-only torch is fine.
 gnn = [

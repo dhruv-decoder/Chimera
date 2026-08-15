@@ -217,7 +217,7 @@ slides.push(`<section class="slide">
   <div class="cols" style="margin-top:14px">
     <div class="statbox">
       <div class="step" style="color:#5ea0ff">Competitive, but the loop is the point</div>
-      <div class="d">On the real ULB benchmark, Chimera's static ensemble sits with standard models (PR-AUC: RandomForest ${(bench.baselines?.["Random Forest"]?.pr_auc ?? 0.82).toFixed(2)}, LightGBM ${(bench.baselines?.["LightGBM"]?.pr_auc ?? 0.81).toFixed(2)}, Chimera ${(bench.baselines?.["Chimera (two-channel)"]?.pr_auc ?? 0.78).toFixed(2)}, LogReg ${(bench.baselines?.["Logistic Regression"]?.pr_auc ?? 0.70).toFixed(2)}). The contribution is not a better static classifier.</div>
+      <div class="d">On the real ULB benchmark, Chimera's static ensemble sits with standard models (PR-AUC: XGBoost ${(bench.baselines?.["XGBoost"]?.pr_auc ?? 0.84).toFixed(2)}, RandomForest ${(bench.baselines?.["Random Forest"]?.pr_auc ?? 0.82).toFixed(2)}, LightGBM ${(bench.baselines?.["LightGBM"]?.pr_auc ?? 0.81).toFixed(2)}, Chimera ${(bench.baselines?.["Chimera (two-channel)"]?.pr_auc ?? 0.78).toFixed(2)}, LogReg ${(bench.baselines?.["Logistic Regression"]?.pr_auc ?? 0.70).toFixed(2)}). The contribution is not a better static classifier.</div>
     </div>
     <div class="statbox">
       <div class="step" style="color:#2ed6a6">The loop transfers to real fraud</div>

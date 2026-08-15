@@ -93,10 +93,10 @@ judges see the grounding at a glance.
   served via Groq) drive the RAG ideation agent. The detector stack is **LightGBM**,
   a 2-layer **GraphSAGE** GNN (PyTorch), and an **IsolationForest + PCA** novelty
   channel; baselines are Logistic Regression, Random Forest and XGBoost.
-- **Benchmarks:** the ULB real-fraud benchmark above (held-out PR-AUC: RandomForest
-  0.82, LightGBM 0.81, Chimera 0.78, LogReg 0.70) and the GraphSAGE ring-detection
-  benchmark (PR-AUC 0.84 -> 0.998). The runnable notebook is
-  `notebooks/external_benchmark.ipynb`.
+- **Benchmarks:** the ULB real-fraud benchmark above (held-out PR-AUC: XGBoost 0.84,
+  RandomForest 0.82, LightGBM 0.81, Chimera 0.78, LogReg 0.70) and the GraphSAGE
+  ring-detection benchmark (PR-AUC 0.84 -> 0.998). The runnable notebook is
+  `notebooks/external_benchmark.ipynb` (executed, with output logs).
 - **External links:** the repo and the live app (already added above), plus the two
   notebooks if you publish them on Kaggle.
 
