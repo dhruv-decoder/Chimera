@@ -44,13 +44,24 @@ def _sigmoid(x):
 
 
 def load_real():
-    """ULB credit-card fraud (OpenML id 1597), cached locally."""
+    """ULB credit-card fraud. Sourced (in order) from the local cache, a Kaggle-
+    attached copy, or OpenML (id 1597). All three yield the same V1-V28 + Amount +
+    Class frame, so the results are identical however the data is obtained - which
+    lets the Kaggle notebook run offline against the attached dataset or online."""
+    import glob
     import pandas as pd
     cache = DATA_DIR / "external"
     cache.mkdir(parents=True, exist_ok=True)
     p = cache / "creditcard.csv.gz"
     if p.exists():
         return pd.read_csv(p)
+    # Kaggle mounts the ULB dataset at /kaggle/input/**/creditcard.csv; it carries a
+    # leading Time column that the OpenML frame omits, so drop it for an exact match.
+    for hit in glob.glob("/kaggle/input/**/creditcard.csv", recursive=True):
+        df = pd.read_csv(hit)
+        df = df[[c for c in df.columns if c != "Time"]]
+        df["Class"] = df["Class"].astype(int)
+        return df
     from sklearn.datasets import fetch_openml
     df = fetch_openml(data_id=1597, as_frame=True, parser="auto").frame
     df["Class"] = df["Class"].astype(int)
