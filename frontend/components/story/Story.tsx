@@ -37,8 +37,12 @@ export function Story({ onLaunch }: { onLaunch: Launch }) {
       {/* The proof, told round by round */}
       <div id="proof" className="mx-auto max-w-6xl px-6">
         <Reveal className="mx-auto max-w-2xl pb-2 pt-12 text-center">
-          <div className="label text-defense">The proof · how to read this chart</div>
+          <div className="label text-defense">The winning view · how to read this chart</div>
           <h2 className="display mt-3 text-display-sm">A static score measures yesterday. The hardening curve measures whether the loop actually closes.</h2>
+          <p className="mx-auto mt-3 max-w-xl text-[13px] text-mist-500">
+            Everyone can post an AUC. Almost no one shows their detector break under a live adversary and recover.
+            This one chart is the whole thesis.
+          </p>
           <p className="lede mx-auto mt-4 max-w-2xl text-[15px]">
             Scroll down. The <span className="font-medium text-threat">red line</span> is fraud slipping past the
             detector as the attacker evolves against it (falling = getting worse). The{" "}
@@ -452,8 +456,15 @@ function Footer() {
   return (
     <footer className="border-t border-white/[0.06]">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-6 py-8 text-xs text-mist-500 sm:flex-row">
-        <Wordmark />
-        <div className="text-right">Runs on synthetic data it generates itself · no real cardholders, PII, or live payment connectivity.</div>
+        <div className="flex items-center gap-3">
+          <Wordmark />
+          <span className="text-mist-600">·</span>
+          <span>Identify · Generate · Defend — one closed loop.</span>
+        </div>
+        <div className="flex items-center gap-4">
+          <a href="https://github.com/dhruv-decoder/Chimera" target="_blank" rel="noreferrer" className="transition-colors hover:text-mist-300">GitHub</a>
+          <span className="text-mist-600">Mastercard Innovation Challenge · GFF 2026</span>
+        </div>
       </div>
     </footer>
   );
