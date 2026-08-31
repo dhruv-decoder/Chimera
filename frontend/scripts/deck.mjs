@@ -339,11 +339,11 @@ writeFileSync(outHtml, html);
 const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 1280, height: 720 }, deviceScaleFactor: 2 });
 await page.goto("file://" + outHtml, { waitUntil: "networkidle" });
-await page.pdf({ path: resolve(DOCS, "Chimera_Deck.pdf"), width: "1280px", height: "720px", printBackground: true });
+await page.pdf({ path: resolve(DOCS, "Chimera.pdf"), width: "1280px", height: "720px", printBackground: true });
 // per-slide PNGs for QA
 const els = await page.locator(".slide").all();
 for (let i = 0; i < els.length; i++) {
   await els[i].screenshot({ path: resolve(PREV, `slide-${String(i + 1).padStart(2, "0")}.png`) });
 }
 await browser.close();
-console.log(`deck: ${slides.length} slides -> docs/Chimera_Deck.pdf  (+ ${els.length} previews)`);
+console.log(`deck: ${slides.length} slides -> docs/Chimera.pdf  (+ ${els.length} previews)`);

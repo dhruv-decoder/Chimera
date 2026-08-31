@@ -1,6 +1,6 @@
 // Record a ~60s screen video of the main attack -> defense flow.
 //   node scripts/demo.mjs    (requires the app running on :8000)
-// Output: docs/Chimera_Demo.webm  (upload to YouTube, or convert to mp4)
+// Output: docs/Chimera.webm  (upload to YouTube, or convert to mp4)
 import { chromium } from "playwright";
 import { renameSync, mkdirSync } from "fs";
 import { fileURLToPath } from "url";
@@ -88,6 +88,6 @@ await scrollTo(0); await wait(1200);
 await context.close();
 await browser.close();
 const src = await page.video().path();
-const out = resolve(DOCS, "Chimera_Demo.webm");
+const out = resolve(DOCS, "Chimera.webm");
 renameSync(src, out);
-console.log("demo video -> docs/Chimera_Demo.webm");
+console.log("demo video -> docs/Chimera.webm");

@@ -42,7 +42,7 @@ export function Overview() {
         <Fade delay={0.05}><Metric label="ROC-AUC" tone="defense" better="higher" value={s ? s.roc_auc.toFixed(4) : " - "} sub="ranks fraud above legit" /></Fade>
         <Fade delay={0.1}><Metric label="PR-AUC" tone="defense" better="higher" value={s ? s.pr_auc.toFixed(4) : " - "} sub="precision under 1.4% fraud rate" /></Fade>
         <Fade delay={0.15}><Metric label="F1 @ max-F1" better="higher" value={s ? s.f1.toFixed(3) : " - "} sub={s ? `precision ${s.precision.toFixed(3)} · recall ${s.recall.toFixed(3)}` : ""} /></Fade>
-        <Fade delay={0.2}><Metric label="FPR @ 90% recall" tone="warn" better="lower" value={s ? `${(s.fpr_at_90_recall * 100).toFixed(3)}%` : " - "} sub="good customers wrongly flagged" /></Fade>
+        <Fade delay={0.2}><Metric label="FPR @ operating point" tone="warn" better="lower" value={s ? `${(s.fpr * 100).toFixed(3)}%` : " - "} sub={s && s.confusion ? `${s.confusion.fp} of ${(s.confusion.fp + s.confusion.tn).toLocaleString()} good txns flagged` : "good customers wrongly flagged"} /></Fade>
       </div>
 
       <Fade delay={0.25}>

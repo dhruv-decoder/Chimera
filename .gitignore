@@ -15,6 +15,19 @@ frontend/next-env.d.ts
 # Deck build intermediates (the rendered PDF is committed; these are not)
 docs/deck.html
 docs/deck_previews/
+docs/Chimera_Deck.pptx
+
+# Internal working notes and submission-prep assets: kept locally, not published.
+# The public deliverables are README.md, docs/Chimera.docx, docs/Chimera.pdf,
+# docs/walkthrough.md, docs/Chimera.webm, and the two notebooks.
+docs/CHANGELOG.md
+docs/DEMO.md
+docs/DEPLOY.md
+docs/SUBMISSION_GUIDE.md
+docs/KAGGLE_WRITEUP.md
+docs/kaggle_card_560x280.png
+docs/gallery/
+docs/screenshots/
 
 # Artifacts: JSON reports + the trained detector are committed so the API deploys
 # with zero build-time training. Large intermediate data stays out.

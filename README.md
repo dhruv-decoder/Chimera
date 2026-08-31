@@ -61,7 +61,7 @@ Reproduce with `make train && make loop` (numbers are seeded and stable; see
   0.9999). Against standard models the static ensemble is only competitive
   (PR-AUC: RF 0.82, LightGBM 0.81, Chimera 0.78) - the contribution is the loop,
   which transfers to real fraud (recall 84% -> 59% under evasion -> 100% after
-  retrain). See [docs/CHANGELOG.md](docs/CHANGELOG.md).
+  retrain).
 
 > These are results on synthetic-but-realistic data. See
 > [Real-world feasibility](docs/walkthrough.md#10-real-world-feasibility) for what
@@ -119,7 +119,7 @@ red team exists only to harden the blue team.
 Python · scikit-learn · LightGBM · NetworkX · FastAPI · LangGraph · Groq
 (`gpt-oss`, free tier) · Next.js · TypeScript · Tailwind · Framer Motion. Ships as
 a single monolithic Docker image (FastAPI serves the static Next export + `/api`),
-one Render service, one URL. See [docs/DEPLOY.md](docs/DEPLOY.md).
+one Render service, one URL.
 
 ## Layout
 
@@ -130,7 +130,28 @@ backend/chimera/
   defend/     features (event + velocity + graph + agent-identity), detector, evaluate
   loop/       orchestrator (engine) + graph (LangGraph)
   api/        FastAPI service + server
-backend/scripts/   train.py, run_loop.py, analyze.py, build_deck.py
+backend/scripts/   train.py, run_loop.py, analyze.py, build_deck.py, build_docx.py
 frontend/          Next.js app (scroll-told landing + live console)
-docs/              solution walkthrough, deck, screenshots
+notebooks/         reproduce_chimera.ipynb, external_benchmark.ipynb (executed)
+docs/              solution walkthrough (walkthrough.md), Chimera.docx, Chimera.pdf deck,
+                   Chimera.webm demo, architecture.png
 ```
+
+## Submission artifacts
+
+- **Solution document:** [docs/Chimera.docx](docs/Chimera.docx) (and the full
+  [docs/walkthrough.md](docs/walkthrough.md))
+- **Slide deck:** [docs/Chimera.pdf](docs/Chimera.pdf)
+- **Demo video:** [docs/Chimera.webm](docs/Chimera.webm)
+- **Reproducibility notebooks:** [notebooks/reproduce_chimera.ipynb](notebooks/reproduce_chimera.ipynb),
+  [notebooks/external_benchmark.ipynb](notebooks/external_benchmark.ipynb)
+- **External dataset used for validation:** ULB credit-card fraud
+  (`mlg-ulb/creditcardfraud`)
+
+## Acknowledgements
+
+Built by team **Chimera** for the **Mastercard Innovation Challenge @ GFF 2026**
+(AI Defense Lab for Payment Security). Engineering was carried out with AI pair-
+programming assistance (Anthropic's Claude Code); all design decisions, results,
+and validation are the author's own, and every reported number is reproducible
+from the seeded pipeline in this repository.
