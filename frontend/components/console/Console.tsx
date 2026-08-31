@@ -11,6 +11,7 @@ import { ClosedLoop } from "@/components/views/ClosedLoop";
 import { GraphView } from "@/components/views/GraphView";
 import { Detection } from "@/components/views/Detection";
 import { Evidence } from "@/components/views/Evidence";
+import { AttackChains } from "@/components/views/AttackChains";
 
 const NAV = [
   { id: "overview", label: "Overview", pillar: "", view: Overview },
@@ -20,6 +21,7 @@ const NAV = [
   { id: "graph", label: "Network Graph", pillar: "Generate", view: GraphView },
   { id: "detect", label: "Detection", pillar: "Defend", view: Detection },
   { id: "evidence", label: "Validation", pillar: "Evidence", view: Evidence },
+  { id: "chains", label: "Attack Chains", pillar: "Adapt", view: AttackChains },
 ] as const;
 
 export function Console({ initial = "overview", onExit }: { initial?: string; onExit: () => void }) {

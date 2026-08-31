@@ -14,7 +14,6 @@ export function Evidence() {
   const rig = v.data?.rigor;
   const bench = v.data?.benchmark;
 
-  const chains = v.data?.attack_chains;
   const seeds = rig?.stability_across_seeds;
   const abl = rig?.component_ablation || {};
   const lat = rig?.latency;
@@ -138,33 +137,6 @@ export function Evidence() {
         </Panel>
       </div>
 
-      {chains && (
-        <Panel title="Combined attack chains"
-          right={<span className="chip border border-warn/30 bg-warn/5 text-warn">beta</span>}
-          hint="A synthetic-identity bust-out ages accounts that then run a low-observability cash-out. Does chaining evade, and does the loop recover? Recall on the stage-2 fraud at a matched 1% alert budget.">
-          <div className="space-y-2.5">
-            <div className="grid grid-cols-[1.4fr_1fr_1fr] items-center gap-3 text-[11px] text-mist-500">
-              <span>scenario</span><span className="text-right">supervised only</span><span className="text-right">full ensemble</span>
-            </div>
-            <ChainRow label="single-stage (cold)" sup={chains.single_stage_cold.supervised_only} full={chains.single_stage_cold.full_ensemble} />
-            <ChainRow label="chained (aged bust-out)" sup={chains.chained.supervised_only} full={chains.chained.full_ensemble} evaded />
-            <ChainRow label="chained, after retrain" sup={chains.chained_after_retrain.supervised_only} full={chains.chained_after_retrain.full_ensemble} />
-          </div>
-          <p className="mt-4 text-xs leading-relaxed text-mist-500">
-            Chaining evades the supervised classifier ({pct(chains.single_stage_cold.supervised_only)} → {pct(chains.chained.supervised_only)}); the novelty channel is the safety net ({pct(chains.chained.full_ensemble)}), and retraining lifts both channels. The last row is a fresh holdout scored by the retrained detector, so the honest before/after is the chained row vs it (not the easy single-stage 100%). The two-channel design and the loop both earn their keep against a multi-stage threat.
-          </p>
-        </Panel>
-      )}
-    </div>
-  );
-}
-
-function ChainRow({ label, sup, full, evaded }: { label: string; sup: number; full: number; evaded?: boolean }) {
-  return (
-    <div className="grid grid-cols-[1.4fr_1fr_1fr] items-center gap-3">
-      <span className="text-xs text-mist-300">{label}</span>
-      <span className={`stat text-right text-sm ${evaded ? "text-threat" : "text-mist-200"}`}>{pct(sup)}</span>
-      <span className="stat text-right text-sm text-defense">{pct(full)}</span>
     </div>
   );
 }

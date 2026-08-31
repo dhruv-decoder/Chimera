@@ -138,6 +138,8 @@ export type Validation = {
     closed_loop_on_real: { baseline_recall: number; under_evasion: number; after_retrain: number };
   };
   attack_chains?: {
+    note?: string;
+    finding?: string;
     single_stage_cold: { supervised_only: number; full_ensemble: number };
     chained: { supervised_only: number; full_ensemble: number };
     chained_after_retrain: { supervised_only: number; full_ensemble: number };
