@@ -71,7 +71,6 @@ export function ClosedLoop() {
       <Fade>
         <div className="flex flex-wrap items-center gap-2">
           <h2 className="text-lg font-semibold tracking-tight text-mist-100">Closed-loop console</h2>
-          <Tag tone="defense">the winning view</Tag>
         </div>
         <p className="mt-1.5 max-w-3xl text-sm leading-relaxed text-mist-400">
           Four AI agents evolve evasive fraud against the current detector, measure the breach, retrain, and

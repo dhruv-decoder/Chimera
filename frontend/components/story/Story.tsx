@@ -37,12 +37,8 @@ export function Story({ onLaunch }: { onLaunch: Launch }) {
       {/* The proof, told round by round */}
       <div id="proof" className="mx-auto max-w-6xl px-6">
         <Reveal className="mx-auto max-w-2xl pb-2 pt-12 text-center">
-          <div className="label text-defense">The winning view · how to read this chart</div>
+          <div className="label text-defense">The proof · how to read this chart</div>
           <h2 className="display mt-3 text-display-sm">A static score measures yesterday. The hardening curve measures whether the loop actually closes.</h2>
-          <p className="mx-auto mt-3 max-w-xl text-[13px] text-mist-500">
-            Everyone can post an AUC. Almost no one shows their detector break under a live adversary and recover.
-            This one chart is the whole thesis.
-          </p>
           <p className="lede mx-auto mt-4 max-w-2xl text-[15px]">
             Scroll down. The <span className="font-medium text-threat">red line</span> is fraud slipping past the
             detector as the attacker evolves against it (falling = getting worse). The{" "}
@@ -314,7 +310,7 @@ function Agentic({ loo, onLaunch }: { loo?: { supervised_recall: number; novelty
     <section className="mx-auto max-w-6xl px-6 py-24">
       <div className="grid gap-12 lg:grid-cols-[1fr_0.9fr] lg:items-center">
         <Reveal>
-          <div className="label text-agentic">The 2026 frontier most teams will miss</div>
+          <div className="label text-agentic">Agentic-commerce identity abuse</div>
           <h2 className="display mt-3 text-display-sm">When an AI shopping agent is hijacked, it looks exactly like a legitimate one.</h2>
           <p className="lede mt-5 max-w-xl">
             Under Mastercard Agent Pay and Visa's Trusted Agent Protocol, a purchase can be initiated by a
@@ -366,7 +362,7 @@ function Feasibility({ s, op, meta }: { s?: any; op?: any; meta?: any }) {
     <section className="border-y border-white/[0.06] bg-white/[0.012]">
       <div className="mx-auto max-w-6xl px-6 py-20">
         <Reveal className="max-w-2xl">
-          <div className="label text-defense">Built for the real thing</div>
+          <div className="label text-defense">Real-world feasibility</div>
           <h2 className="display mt-3 text-display-sm">Reported the way a fraud desk reads a model - not just an AUC.</h2>
         </Reveal>
         <div className="mt-10 grid grid-cols-2 gap-5 md:grid-cols-4">
@@ -459,7 +455,7 @@ function Footer() {
         <div className="flex items-center gap-3">
           <Wordmark />
           <span className="text-mist-600">·</span>
-          <span>Identify · Generate · Defend — one closed loop.</span>
+          <span>Identify, generate and defend as one closed loop.</span>
         </div>
         <div className="flex items-center gap-4">
           <a href="https://github.com/dhruv-decoder/Chimera" target="_blank" rel="noreferrer" className="transition-colors hover:text-mist-300">GitHub</a>

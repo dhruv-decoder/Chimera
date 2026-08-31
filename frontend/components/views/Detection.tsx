@@ -41,11 +41,11 @@ export function Detection() {
         <div className="panel flex gap-3 border-defense/15 p-4">
           <span className="mt-0.5 text-defense">ⓘ</span>
           <p className="text-[13px] leading-relaxed text-mist-300">
-            <span className="font-medium text-mist-100">Why these numbers look perfect - and why that is not the point.</span>{" "}
-            First-generation campaigns carry loud structural signatures, so a strong model scores near-perfect
-            in-distribution. The two honest tests are how the detector holds up when the red team evolves evasion
-            (the <span className="text-defense">Closed Loop</span>) and how it recovers a vector it has never seen
-            (the novelty table below). One vector - deepfake authorised push - stays hard by design.
+            <span className="font-medium text-mist-100">The scores that matter are adversarial.</span>{" "}
+            In-distribution metrics sit near ceiling because first-generation campaigns carry loud structural
+            signatures. The detector is judged on the harder tests: recall under live evasion (the{" "}
+            <span className="text-defense">Closed Loop</span>) and recovery of a vector never seen in training
+            (the novelty table below). Deepfake authorised-push payment stays the hardest vector by design.
           </p>
         </div>
       </Fade>

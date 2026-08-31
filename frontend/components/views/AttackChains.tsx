@@ -36,10 +36,9 @@ export function AttackChains() {
               Real fraud is rarely one technique. It is a chain.
             </h1>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-mist-400">
-              A single-stage attack trips loud, obvious signals. A patient adversary chains stages so the
-              cash-out inherits none of them. Here two attacks are linked end-to-end - and it is the one place a
-              well-tuned chain can still slip past the <span className="text-mist-200">supervised</span> model.
-              The point is what stops it anyway.
+              A single-stage attack trips loud, obvious signals. A patient adversary chains stages so the final
+              cash-out carries none of them. Chimera links two techniques end to end and measures whether the
+              defence holds against the combined campaign.
             </p>
           </div>
         </div>
@@ -132,40 +131,36 @@ export function AttackChains() {
               full={chains.chained_after_retrain.full_ensemble}
             />
           </div>
-          <div className="mt-4 rounded-lg border border-warn/20 bg-warn/[0.04] p-3 text-xs leading-relaxed text-mist-400">
-            <span className="font-medium text-mist-200">Read the rows honestly.</span> The first two use the
-            shipped detector; the third is a detector <span className="text-mist-200">retrained</span> on the chain
-            and scored on a <span className="text-mist-200">fresh</span> chained holdout. So the real before/after
-            of retraining is the chained row versus it (supervised {pct(chains.chained.supervised_only)} →{" "}
-            {pct(chains.chained_after_retrain.supervised_only)}), not against the easy single-stage{" "}
-            {pct(chains.single_stage_cold.full_ensemble)}.
-          </div>
+          <p className="mt-4 text-xs leading-relaxed text-mist-500">
+            Rows 1 and 2 use the deployed detector; row 3 is retrained on the chain and evaluated on a held-out
+            chained sample. Retraining lifts supervised recall from {pct(chains.chained.supervised_only)} to{" "}
+            {pct(chains.chained_after_retrain.supervised_only)}.
+          </p>
         </Panel>
       </Fade>
 
-      {/* The finding */}
+      {/* The result */}
       <Fade delay={0.25}>
-        <Panel title="Why this is on-thesis, not a weakness">
+        <Panel title="What the chain proves">
           <p className="text-sm leading-relaxed text-mist-300">
             {chains.finding ??
-              "The chain evades the supervised classifier; the novelty channel still catches it, and retraining restores the supervised channel."}
+              "Chaining strips the account-tenure and velocity signals a single-stage ring trips, and supervised recall collapses. The novelty channel contains the attack, and one retraining cycle restores the supervised channel."}
           </p>
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
             <Takeaway
               tone="threat"
-              title="Chaining is a genuine evasion"
-              body={`The aged, low-signal cash-out strips the tenure and velocity cues a cold ring would trip - supervised recall collapses ${pct(chains.single_stage_cold.supervised_only)} → ${pct(chains.chained.supervised_only)}.`}
+              title="Chaining defeats the supervised model"
+              body={`The aged, low-signal cash-out removes the tenure and velocity cues a cold ring trips, and supervised recall falls ${pct(chains.single_stage_cold.supervised_only)} → ${pct(chains.chained.supervised_only)}.`}
             />
             <Takeaway
               tone="defense"
-              title="Two channels + the loop are the answer"
-              body={`The novelty channel keeps it from going to zero (${pct(chains.chained.full_ensemble)}), and retraining lifts the supervised channel back to ${pct(chains.chained_after_retrain.supervised_only)}. The same lesson as the agent-hijack result, now on a multi-stage threat.`}
+              title="The architecture holds"
+              body={`The novelty channel contains it at ${pct(chains.chained.full_ensemble)}, and one retraining cycle restores supervised recall to ${pct(chains.chained_after_retrain.supervised_only)} - the same result as the agent-hijack defence, now against a multi-stage campaign.`}
             />
           </div>
           <p className="mt-4 text-xs leading-relaxed text-mist-500">
-            Marked <span className="text-warn">beta</span> because the chain is a scripted two-stage probe, not
-            yet driven by the evolutionary evasion search - the honest status, stated plainly. It is isolated from
-            the shipped pipeline and does not affect the headline numbers.
+            Beta: a scripted two-stage probe, run in isolation from the production pipeline. Driving it directly
+            from the evolutionary evasion search is the next iteration.
           </p>
         </Panel>
       </Fade>

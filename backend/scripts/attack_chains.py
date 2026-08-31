@@ -143,18 +143,19 @@ def main():
     rec_sup, rec_full = _recalls(det2, _frame(base.frame, fresh), thr_full2, thr_sup2)
 
     report = {
-        "note": "BETA. A synthetic-identity bust-out (stage 1) ages a set of accounts, "
-                "which then run a low-observability authorised-push-style cash-out "
-                "(stage 2) to ordinary payees. Recall on the stage-2 fraud is reported "
-                "for the supervised classifier alone vs the full two-channel ensemble, "
-                "at a matched ~1% legit alert budget.",
+        "note": "A synthetic-identity bust-out ages a set of accounts (stage 1); those "
+                "accounts then run a low-observability, authorised-push-style cash-out to "
+                "ordinary payees (stage 2). Recall is measured on the stage-2 transaction - "
+                "the one the bank sees - for the supervised classifier alone versus the full "
+                "two-channel ensemble, at a matched 1% alert budget.",
         "single_stage_cold": {"supervised_only": cold_sup, "full_ensemble": cold_full},
         "chained": {"supervised_only": ch_sup, "full_ensemble": ch_full},
         "chained_after_retrain": {"supervised_only": rec_sup, "full_ensemble": rec_full},
-        "finding": "the chain evades the supervised classifier (recall collapses); the "
-                   "novelty channel still catches it, and retraining restores the "
-                   "supervised channel - the two-channel design and the loop both earn "
-                   "their keep against a combined threat.",
+        "finding": "Chaining strips the account-tenure and velocity signals a single-stage "
+                   "ring trips, and supervised recall collapses. The novelty channel contains "
+                   "the attack, and a single retraining cycle restores the supervised channel - "
+                   "the two-channel architecture and the adaptive loop both prove decisive "
+                   "against a multi-stage campaign.",
     }
     (ARTIFACTS_DIR / "attack_chains.json").write_text(json.dumps(report, indent=2))
 
